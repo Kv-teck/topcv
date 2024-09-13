@@ -3,27 +3,24 @@ import React from 'react'
 export const HeaderComponent = () => {
   return (
     <nav className="bg-white border-b shadow-md">
-      <div className=" px-4 flex justify-between items-center h-16">
+      <div className=" px-4 flex justify-between items-center h-20">
         
         {/* Logo */}
-        <div className="flex items-center">
-          <img
-            src=""  // Link thay thế cho logo
+        <div className="flex items-center ">
+          <img 
+            src="https://static.topcv.vn/v4/image/logo/topcv-logo-6.png"  // Link thay thế cho logo
             alt="logo"
-            className="h-8 w-auto"
+            className="h-20 w-auto"
           />
-          <span className="ml-2 text-sm text-gray-500">Tiếp lợi thế - Nối thành công</span>
-        </div>
-
-        {/* Menu links */}
-        <div className="hidden md:flex space-x-4">
+          {/* Menu links */}
+        <div className="hidden md:flex space-x-10 pl-8">
           <a href="#" className="text-green-600 font-semibold hover:text-green-600">Việc làm</a>
           <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Hồ sơ & CV</a>
           <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Công ty</a>
           <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Công cụ</a>
           <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Cẩm nang nghề nghiệp</a>
         </div>
-
+        </div>
         {/* Notification & Profile section */}
         <div className="flex items-center space-x-4">
           {/* <button className="relative">
@@ -48,13 +45,13 @@ export const HeaderComponent = () => {
             />
           </div> */}
           <div class="flex items-center space-x-4">
-        <button class="border border-green-600 text-green-600 px-4 py-1 rounded hover:bg-green-100">
+        <button class="border border-green-600 text-green-600 px-4 py-2 font-semibold rounded hover:bg-green-100">
           Đăng nhập
         </button>
-        <button class="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700">
+        <button class="bg-green-600 text-white px-4 py-2 font-semibold rounded hover:bg-green-700">
           Đăng ký
         </button>
-        <button class="bg-gray-800 text-white px-4 py-1 rounded hover:bg-gray-900">
+        <button class="bg-gray-800 text-white px-4 py-2 font-semibold rounded hover:bg-gray-900">
           Đăng tuyển & tìm hồ sơ
         </button>
       </div>
