@@ -16,6 +16,7 @@ module.exports = {
         '100%': '100%',
         '16': '4rem',
       }
+      
     },
   },
   plugins: [],
