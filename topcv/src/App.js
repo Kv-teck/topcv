@@ -22,7 +22,10 @@ function App() {
           </div>
         </div>
       </div>
-      <ProductTop />
+      <div className='bg-grey'>
+        <ProductTop />
+      </div>
+
     </div>
 
   );
