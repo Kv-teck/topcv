@@ -1,5 +1,6 @@
 import './App.css';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
+import ProductTop from './components/ProductTop/ProductTop';
 import MarketInfo from './Redux/MarketInfo/MarketInfo';
 import SearchSection from './Redux/Slider/SearchSection';
 import Videobaner from './Redux/Video/Videobaner';
@@ -21,6 +22,7 @@ function App() {
         </div>
       </div>
       </div>
+      <ProductTop/>
     </div>
 
   );
