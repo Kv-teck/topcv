@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <HeaderComponent />
       <div className="bg-[url('https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/bg_header.webp')] bg-[length:100%]">
-      <div className=" container mx-auto w-2/3">
+      <div className=" container mx-auto">
         <div className='flex'>
           <div>
             <SearchSection />
