@@ -5,6 +5,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      important: true,
       backgroundImage: {
         'hero-pattern': "url('https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/bg_header.webp')",
       },
