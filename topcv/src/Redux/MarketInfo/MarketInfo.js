@@ -59,8 +59,9 @@ export const MarketInfo = () => {
                 {/* Bar Chart Section */}
                 <div className="h-5/6">
                     <div className="flex items-center justify-between mb-2">
-                        <div>
-                            <p className="font-semibold">Nhu cầu tuyển dụng theo</p>
+                        <div className="flex">
+                            <img className="w-5 h-5" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/section-header/trend-hr-chart.png"/>
+                            <p className="font-semibold ml-2">Nhu cầu tuyển dụng theo</p>
                         </div>
                         <div className="flex rounded-lg border border-emerald-500 p-2 mt-2.5">
                             <button className="text-sm text-emerald-600 items-center ml-2 font-bold">
@@ -121,7 +122,7 @@ export const MarketInfo = () => {
                 {/* Hover Button Section */}
                 <div className="flex justify-end">
                     <button
-                        className={`bg-green-500 p-2 -mt-8 -mr-4 rounded-tl-lg rounded-br-lg text-white font-semibold transition-opacity duration-300 ${hover ? 'opacity-100' : 'opacity-0'
+                        className={`bg-green-500 p-1 -mt-6 -mr-4 rounded-tl-lg rounded-br-lg text-white font-semibold transition-opacity duration-300 ${hover ? 'opacity-100' : 'opacity-0'
                             }`}
                     >
                         Xem thêm
