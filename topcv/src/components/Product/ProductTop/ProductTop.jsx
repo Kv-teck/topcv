@@ -1,9 +1,9 @@
 import Product from '../Product';
 
 
-export const ProductTop = ({ product }) => {
+export const ProductTop = () => {
     return (
-        <div class="container mx-auto">
+        <div class="container mx-auto ">
             <div class="flex items-center justify-between py-4 bg-white">
                 <div class="flex items-center space-x-2">
                     <h1 class="text-xl font-bold text-green-600">Việc làm tốt nhất</h1>
