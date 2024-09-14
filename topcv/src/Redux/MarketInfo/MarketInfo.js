@@ -2,7 +2,7 @@ import React from 'react'
 
 export const MarketInfo = () => {
   return (
-    <div className="text-white p-8">
+    <div className="container mx-auto text-white p-8">
         <div className='bg-green-700 p-4 h-full rounded-lg'>
         <div className="flex justify-between mb-2">
                 <span className="text-sm leading-6 font-semibold">Thị trường việc làm hôm nay:</span>

@@ -10,19 +10,19 @@ function App() {
     <div className="App">
       <HeaderComponent />
       <div className="bg-[url('https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/bg_header.webp')] bg-[length:100%]">
-      <div className=" container mx-auto">
-        <div className='flex'>
-          <div>
-            <SearchSection />
-            <div className="container mx-auto p-8">
-              <Videobaner />
+        <div className=" container mx-auto">
+          <div className='flex'>
+            <div>
+              <SearchSection />
+              <div className="container mx-auto p-8">
+                <Videobaner />
+              </div>
             </div>
+            <MarketInfo />
           </div>
-          <MarketInfo />
         </div>
       </div>
-      </div>
-      <ProductTop/>
+      <ProductTop />
     </div>
 
   );
