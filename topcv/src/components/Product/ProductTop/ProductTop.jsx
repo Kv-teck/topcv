@@ -1,6 +1,7 @@
-import './ProductTop.css';
+import Product from '../Product';
 
-export const ProductTop = () => {
+
+export const ProductTop = ({ product }) => {
     return (
         <div class="container mx-auto">
             <div class="flex items-center justify-between py-4 bg-white">
@@ -70,101 +71,36 @@ export const ProductTop = () => {
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
+                <Product />
+                <Product />
+                <Product />
 
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
+                <Product />
+                <Product />
+                <Product />
 
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
-
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
-
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
-
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
-
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
-
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
-
-
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
-
-
-                <div class="border rounded-lg shadow-lg p-4">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Huge Logo" class="w-16 h-16 mx-auto" />
-                    <h2 class="text-xl font-semibold text-center mt-2">Nhân Viên Kinh Doanh/Sales/Tư...</h2>
-                    <p class="text-center text-gray-500">Công ty Cổ phần Smart BKG</p>
-                    <div class="flex justify-between mt-2">
-                        <span class="text-gray-700">10 - 20 triệu</span>
-                        <span class="text-gray-700">Hà Nội</span>
-                    </div>
-                </div>
+                <Product />
+                <Product />
+                <Product />
             </div>
+            <div class="flex items-center justify-center space-x-4 p-4">
 
+                <button class="p-2 text-green-500 rounded-full hover:bg-green-100 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
 
+                <div class="text-gray-500">
+                    <span class="text-green-600 font-medium">2</span> / 54 trang
+                </div>
+
+                <button class="p-2 text-green-500 rounded-full hover:bg-green-100 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
         </div>
     )
 }
