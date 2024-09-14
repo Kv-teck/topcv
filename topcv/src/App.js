@@ -1,6 +1,8 @@
 import './App.css';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
 import ProductTop from './components/Product/ProductTop/ProductTop';
+import TopLeading from './components/Top/TopLeading/TopLeading';
+import TopProminent from './components/Top/TopProminent/TopProminent';
 import MarketInfo from './Redux/MarketInfo/MarketInfo';
 import SearchSection from './Redux/Slider/SearchSection';
 import Videobaner from './Redux/Video/Videobaner';
@@ -22,10 +24,11 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='bg-grey'>
+      <div className='bg-gray-100'>
         <ProductTop />
       </div>
-
+      <TopLeading/>
+      <TopProminent/>
     </div>
 
   );
