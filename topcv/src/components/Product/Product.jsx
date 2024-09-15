@@ -4,15 +4,23 @@ export const Product = () => {
 
     return (
         <>
-            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex items-center space-x-4" style={{alignItems: "end"}}>
+            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex items-end space-x-4">
                 <div className="flex-shrink-0">
-                    <img src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg" alt="Logo" className="w-20 h-20 object-contain" />
+                    <img
+                        src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg"
+                        alt="Logo"
+                        className="w-20 h-20 object-contain"
+                    />
                 </div>
+
                 <div className="flex-1 hover:text-green-600">
-                    <h3 className="text-xl font-semibold">
-                        Key Account Executive (Kênh Bea...
-                    </h3>
-                    <p className="text-sm text-gray-500">CÔNG TY TNHH AMERI GROUP</p>
+                    <div className="flex items-center">
+                        <a className="px-2 py-0 bg-red-600 text-white rounded-full mr-1">HOT</a>
+                        <h3 className="text-xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-[270px]">
+                            Nhân Viên Xử Lý Đơn Hàng / Process
+                        </h3>
+                    </div>
+                    <p className="text-sm text-gray-500 text-left mt-1">CÔNG TY TNHH AMERI GROUP</p>
                     <div className="flex items-center space-x-2 mt-2">
                         <span className="bg-gray-100 text-gray-700 text-xs font-medium px-2 py-1 rounded">
                             20 - 25 triệu
@@ -22,8 +30,19 @@ export const Product = () => {
                         </span>
                     </div>
                 </div>
+
                 <div className="flex-shrink-0">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                     </svg>
                 </div>
