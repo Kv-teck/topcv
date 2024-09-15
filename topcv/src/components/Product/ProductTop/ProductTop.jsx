@@ -1,10 +1,9 @@
 import Product from '../Product';
 
-
 export const ProductTop = () => {
     return (
         <div className="container mx-auto ">
-            <div className="flex items-center justify-between py-4 bg-white bg-gray-100">
+            <div className="flex items-center justify-between py-4 bg-gray-100">
                 <div className="flex items-center space-x-2">
                     <h1 className="text-xl font-bold text-green-600">Việc làm tốt nhất</h1>
                     <span className="text-xs text-gray-400">|</span>
