@@ -31,7 +31,7 @@ function App() {
       </div>
       <TopLeading/>
       <TopProminent/>
-      <div className="bg-[url('https://static.topcv.vn/v4/image/welcome/superior-tool/superior-tool-bg.png?v=1.0.1')] bg-[length:100%]">
+      <div className="container mx-auto justify-between bg-[url('https://static.topcv.vn/v4/image/welcome/superior-tool/superior-tool-bg.png?v=1.0.1')] bg-[50%] bg-no-repeat bg-[length:20%]">
       <SuperiorTool/>
       </div>
       

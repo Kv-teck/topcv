@@ -45,6 +45,8 @@ export const SuperiorTool = () => {
                     </a>
                 </div>
 
+
+                <h1 className="text-2xl font-bold text-green-600 mb-6 ">Công cụ vượt trội!</h1>
       
                 <div class="content__session grid grid-cols-1 gap-6">
                     <a href="https://www.topcv.vn/cong-cu-tinh-muc-huong-bao-hiem-that-nghiep" class="item bg-white p-4 rounded-lg shadow-md hover:shadow-lg flex items-center space-x-4">
