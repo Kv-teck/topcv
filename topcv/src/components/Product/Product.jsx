@@ -4,7 +4,7 @@ export const Product = () => {
 
     return (
         <>
-            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex items-end space-x-4">
+            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex items-end space-x-4 hover:shadow hover:shadow-green-700">
                 <div className="flex-shrink-0">
                     <img
                         src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg"
