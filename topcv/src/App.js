@@ -1,6 +1,8 @@
 import './App.css';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
+import Personal_Brand from './components/Personal_Brand/Personal_Brand';
 import ProductTop from './components/Product/ProductTop/ProductTop';
+import SuperiorTool from './components/SuperiorTool/SuperiorTool';
 import TopLeading from './components/Top/TopLeading/TopLeading';
 import TopProminent from './components/Top/TopProminent/TopProminent';
 import MarketInfo from './Redux/MarketInfo/MarketInfo';
@@ -29,6 +31,10 @@ function App() {
       </div>
       <TopLeading/>
       <TopProminent/>
+      <div className="bg-[url('https://static.topcv.vn/v4/image/welcome/superior-tool/superior-tool-bg.png?v=1.0.1')] bg-[length:100%]">
+      <SuperiorTool/>
+      </div>
+      
     </div>
 
   );

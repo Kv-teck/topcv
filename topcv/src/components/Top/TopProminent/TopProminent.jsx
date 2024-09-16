@@ -1,3 +1,4 @@
+import Personal_Brand from "../../Personal_Brand/Personal_Brand";
 import FormTopProminent from "./FormTopProminent";
 
 
@@ -31,15 +32,27 @@ export const TopProminent = () => {
 
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <FormTopProminent/>
-                        <FormTopProminent/>
-                        <FormTopProminent/>
-                        <FormTopProminent/>
+                        <FormTopProminent />
+                        <FormTopProminent />
+                        <FormTopProminent />
+                        <FormTopProminent />
 
-                        <FormTopProminent/>
-                        <FormTopProminent/>
-                        <FormTopProminent/>
-                        <FormTopProminent/>
+                        <FormTopProminent />
+                        <FormTopProminent />
+                        <FormTopProminent />
+                        <FormTopProminent />
+                    </div>
+                    <div className="mt-20 rounded-lg">
+                        <h1 className="text-2xl font-bold text-green-600 mb-6 text-left">Cùng TopCV xây dựng thương hiệu cá nhân</h1>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <Personal_Brand />
+                            <Personal_Brand />
+                        </div>
+                        <h1 className="text-2xl font-bold text-green-600 mb-6 text-left mt-10">Thấu hiểu bản thân - Nâng tầm giá trị</h1>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <Personal_Brand />
+                            <Personal_Brand />
+                        </div>
                     </div>
                 </div>
 
