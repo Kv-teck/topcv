@@ -1,6 +1,6 @@
 import './App.css';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
-import Personal_Brand from './components/Personal_Brand/Personal_Brand';
+import PersonalBrand from './components/PersonalBrand/PersonalBrand';
 import ProductTop from './components/Product/ProductTop/ProductTop';
 import SuperiorTool from './components/SuperiorTool/SuperiorTool';
 import TopLeading from './components/Top/TopLeading/TopLeading';
