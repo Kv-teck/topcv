@@ -1,6 +1,6 @@
 import './App.css';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
-import Personal_Brand from './components/Personal_Brand/Personal_Brand';
+import PersonalBrand from './components/PersonalBrand/PersonalBrand';
 import ProductTop from './components/Product/ProductTop/ProductTop';
 import SuperiorTool from './components/SuperiorTool/SuperiorTool';
 import TopLeading from './components/Top/TopLeading/TopLeading';
@@ -31,7 +31,7 @@ function App() {
       </div>
       <TopLeading/>
       <TopProminent/>
-      <div className="container mx-auto justify-between bg-[url('https://static.topcv.vn/v4/image/welcome/superior-tool/superior-tool-bg.png?v=1.0.1')] bg-[50%] bg-no-repeat bg-[length:20%]">
+      <div className='bg-gray-100'>
       <SuperiorTool/>
       </div>
       

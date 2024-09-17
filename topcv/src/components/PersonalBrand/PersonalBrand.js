@@ -1,4 +1,4 @@
-export const Personal_Brand = () => {
+export const PersonalBrand = () => {
     return (
         <>
             <div className="bg-white p-6 border rounded-lg shadow-sm flex items-center hover:shadow hover:shadow-green-700">
@@ -22,4 +22,4 @@ export const Personal_Brand = () => {
         </>
     )
 }
-export default Personal_Brand;
+export default PersonalBrand;
