@@ -9,7 +9,7 @@ export const TopProminent = () => {
                 <div className="max-w-full flex items-center justify-between my-6">
 
                     <div>
-                        <h1 className="text-2xl font-bold text-green-600">Top ngành nghề nổi bật</h1>
+                        <h1 className="text-2xl font-bold text-green-600 text-left">Top ngành nghề nổi bật</h1>
                         <p className="text-sm text-gray-500">Bạn muốn tìm việc mới? Xem danh sách việc làm <a href="#" className="text-green-600 underline">tại đây</a>.</p>
                     </div>
 
