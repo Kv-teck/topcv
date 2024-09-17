@@ -1,4 +1,4 @@
-import Personal_Brand from "../../PersonalBrand/PersonalBrand";
+import PersonalBrand from "../../PersonalBrand/PersonalBrand";
 import FormTopProminent from "./FormTopProminent";
 
 
