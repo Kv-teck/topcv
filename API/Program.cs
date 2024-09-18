@@ -13,8 +13,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 // Cấu hình Entity Framework Core
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<Datacontext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
