@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj": {}
+    "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj": {
+    "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Doan Dinh\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\obj\\",
+        "outputPath": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Doan Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -68,10 +68,16 @@
               "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite.Core": {
               "target": "Package",
               "version": "[8.0.8, )"
             },
