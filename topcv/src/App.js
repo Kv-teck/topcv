@@ -1,10 +1,6 @@
 import './App.css';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
-import PersonalBrand from './components/PersonalBrand/PersonalBrand';
-import ProductTop from './components/Product/ProductTop/ProductTop';
-import SuperiorTool from './components/SuperiorTool/SuperiorTool';
-import TopLeading from './components/Top/TopLeading/TopLeading';
-import TopProminent from './components/Top/TopProminent/TopProminent';
+import { HomePage } from './pages/HomePage/HomePage';
 import MarketInfo from './Redux/MarketInfo/MarketInfo';
 import SearchSection from './Redux/Slider/SearchSection';
 import Videobaner from './Redux/Video/Videobaner';
@@ -26,14 +22,9 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='bg-gray-100'>
-        <ProductTop />
-      </div>
-      <TopLeading/>
-      <TopProminent/>
-      <div className='bg-gray-100'>
-      <SuperiorTool/>
-      </div>
+    <main>
+      <HomePage/>
+    </main>
       
     </div>
 
