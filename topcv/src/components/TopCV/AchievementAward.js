@@ -9,7 +9,7 @@ export const AchievementAward = () => {
                 <div className="relative flex items-center justify-center mb-8">
                     <div className="w-[220px] h-[5px] bg-[url('https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/mobile-app/decorated_title_green.png')] bg-no-repeat bg-contain"></div>
 
-                    <h2 className="text-[#00b14f] text-3xl font-extrabold leading-[1.2] mx-9 uppercase tracking-wide">
+                    <h2 className="text-white text-3xl font-extrabold leading-[1.2] mx-9 uppercase tracking-wide">
                         Giải thưởng, thành tựu
                     </h2>
 
