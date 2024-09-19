@@ -1,7 +1,10 @@
+import TopcvEcosystem from "./TopcvEcosystem";
+
 export const AchievementAward = () => {
     return (
-        // Giải thưởng thành tựu
+        
         <>
+         {/* Giải thưởng thành tựu */}
             <div className="container mx-auto py-16 px-4">
                 <div class="relative flex items-center justify-center mb-8">
                     <div class="w-[220px] h-[5px] bg-[url('https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/mobile-app/decorated_title_green.png')] bg-no-repeat bg-contain"></div>
@@ -20,11 +23,11 @@ export const AchievementAward = () => {
                 <div class="flex flex-col items-center gap-[40px]">
                     <div class="flex items-start justify-center gap-[35.76px]">
                         <div class="bg-[url('https://static.topcv.vn/v4/image/welcome/home/impressive_numbers_list_item.png')] bg-center bg-no-repeat bg-cover border-none cursor-pointer inline-block h-[166px] relative w-[497px]">
-                            <span class="flex flex-col h-full justify-center px-[52px] py-[20px] pl-[55px] w-full text-left">
+                            <span class="flex flex-col h-full justify-center px-[45px] py-[20px] pl-[48px] w-full text-left">
 
                                 <div class="flex items-center space-x-4">
                                     <div class="flex-shrink-0">
-                                        <img class="w-[90px] h-[90px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_01.png" alt="Award Image" />
+                                        <img class="w-[95px] h-[95px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_01.png" alt="Award Image" />
                                     </div>
                                     <div class="flex-1 text-white">
                                         <h3 class="text-[18px] font-semibold break-words">
@@ -39,10 +42,10 @@ export const AchievementAward = () => {
                             </span>
                         </div>
                         <div class="bg-[url('https://static.topcv.vn/v4/image/welcome/home/impressive_numbers_list_item.png')] bg-center bg-no-repeat bg-cover border-none cursor-pointer inline-block h-[166px] relative w-[497px]">
-                            <span class="flex flex-col h-full justify-center px-[52px] py-[20px] pl-[55px] w-full text-left">
+                            <span class="flex flex-col h-full justify-center px-[45px] py-[20px] pl-[48px] w-full text-left">
                                 <div class="flex items-center space-x-4">
                                     <div class="flex-shrink-0">
-                                        <img class="w-[90px] h-[90px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_02.png" alt="Award Image" />
+                                        <img class="w-[95px] h-[95px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_02.png" alt="Award Image" />
                                     </div>
                                     <div class="flex-1 text-white">
                                         <h3 class="text-[18px] font-semibold break-words">
@@ -59,10 +62,10 @@ export const AchievementAward = () => {
 
                     <div class="flex items-start justify-center gap-0">
                         <div class="bg-[url('https://static.topcv.vn/v4/image/welcome/home/impressive_numbers_list_item.png')] bg-center bg-no-repeat bg-cover border-none cursor-pointer inline-block h-[166px] relative w-[497px]">
-                            <span class="flex flex-col h-full justify-center px-[52px] py-[20px] pl-[55px] w-full text-left">
+                            <span class="flex flex-col h-full justify-center px-[45px] py-[20px] pl-[48px] w-full text-left">
                                 <div class="flex items-center space-x-4">
                                     <div class="flex-shrink-0">
-                                        <img class="w-[90px] h-[90px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_03.png" alt="Award Image" />
+                                        <img class="w-[95px] h-[95px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_03.png" alt="Award Image" />
                                     </div>
                                     <div class="flex-1 text-white">
                                         <h3 class="text-[18px] font-semibold break-words">
@@ -79,10 +82,10 @@ export const AchievementAward = () => {
                             <img class="lazy entered loaded" data-src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/home/topcv_processor_2x.png" alt="TopCV Processor" data-ll-status="loaded" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/home/topcv_processor_2x.png" />
                         </div>
                         <div class="bg-[url('https://static.topcv.vn/v4/image/welcome/home/impressive_numbers_list_item.png')] bg-center bg-no-repeat bg-cover border-none cursor-pointer inline-block h-[166px] relative w-[497px]">
-                            <span class="flex flex-col h-full justify-center px-[52px] py-[20px] pl-[55px] w-full text-left">
+                            <span class="flex flex-col h-full justify-center px-[45px] py-[20px] pl-[48px] w-full text-left">
                                 <div class="flex items-center space-x-4">
                                     <div class="flex-shrink-0">
-                                        <img class="w-[90px] h-[90px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_04.png" alt="Award Image" />
+                                        <img class="w-[95px] h-[95px] object-contain rounded-lg" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/award/award_04.png" alt="Award Image" />
                                     </div>
                                     <div class="flex-1 text-white">
                                         <h3 class="text-[18px] font-semibold break-words">
@@ -98,6 +101,7 @@ export const AchievementAward = () => {
                     </div>
                 </div>
             </div>
+            <TopcvEcosystem/>
         </>
     )
 }
