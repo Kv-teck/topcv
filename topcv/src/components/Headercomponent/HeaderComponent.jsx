@@ -8,11 +8,13 @@ export const HeaderComponent = () => {
         
         {/* Logo */}
         <div className="flex items-center ">
-          <img 
+        <Link to="/">
+          < img 
             src="https://static.topcv.vn/v4/image/logo/topcv-logo-6.png"  // Link thay thế cho logo
             alt="logo"
             className="h-20 w-auto"
           />
+          </Link>
           {/* Menu links */}
         <div className="hidden md:flex space-x-10 pl-8">
           <a href="#" className="text-green-600 font-semibold hover:text-green-600">Việc làm</a>
@@ -46,10 +48,9 @@ export const HeaderComponent = () => {
             />
           </div> */}
           <div class="flex items-center space-x-4">
-        <button class="border border-green-600 text-green-600 px-4 py-2 font-semibold rounded hover:bg-green-100">
-          <Link to="/login"></Link>
+        <Link to="/login" class="border border-green-600 text-green-600 px-4 py-2 font-semibold rounded hover:bg-green-100">
           Đăng nhập
-        </button>
+        </Link>
         <button class="bg-green-600 text-white px-4 py-2 font-semibold rounded hover:bg-green-700">
           Đăng ký
         </button>
