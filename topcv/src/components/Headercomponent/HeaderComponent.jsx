@@ -46,10 +46,9 @@ export const HeaderComponent = () => {
             />
           </div> */}
           <div class="flex items-center space-x-4">
-        <button class="border border-green-600 text-green-600 px-4 py-2 font-semibold rounded hover:bg-green-100">
-          <Link to="/login"></Link>
+        <Link to="/login" class="border border-green-600 text-green-600 px-4 py-2 font-semibold rounded hover:bg-green-100">
           Đăng nhập
-        </button>
+        </Link>
         <button class="bg-green-600 text-white px-4 py-2 font-semibold rounded hover:bg-green-700">
           Đăng ký
         </button>
