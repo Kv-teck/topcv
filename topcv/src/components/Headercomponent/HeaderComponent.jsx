@@ -51,9 +51,9 @@ export const HeaderComponent = () => {
         <Link to="/login" class="border border-green-600 text-green-600 px-4 py-2 font-semibold rounded hover:bg-green-100">
           Đăng nhập
         </Link>
-        <button class="bg-green-600 text-white px-4 py-2 font-semibold rounded hover:bg-green-700">
+        <Link to="/register" class="bg-green-600 text-white px-4 py-2 font-semibold rounded hover:bg-green-700">
           Đăng ký
-        </button>
+        </Link>
         <button class="bg-gray-800 text-white px-4 py-2 font-semibold rounded hover:bg-gray-900">
           Đăng tuyển & tìm hồ sơ
         </button>
