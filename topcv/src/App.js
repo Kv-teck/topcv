@@ -1,4 +1,6 @@
 import './App.css';
+import FooterKeyword from './components/Footer/FooterKeyword';
+import FooterMain from './components/Footer/FooterMain';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
 import { HomePage } from './pages/HomePage/HomePage';
 import MarketInfo from './Redux/MarketInfo/MarketInfo';
@@ -22,10 +24,14 @@ function App() {
           </div>
         </div>
       </div>
-    <main>
-      <HomePage/>
-    </main>
-      
+      <main>
+        <HomePage />
+      </main>
+
+      <footer>
+        <FooterKeyword />
+        <FooterMain />
+      </footer>
     </div>
 
   );
