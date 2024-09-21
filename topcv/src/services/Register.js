@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Register = () => {
+    const [isAgreed, setIsAgreed] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -14,9 +15,23 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+    
+        if (formData.password !== formData.confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+    
+        // Check if all fields are filled
+        if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+            alert("All fields are required!");
+            return;
+        }
+    
         // Here you can send formData to the backend using fetch/axios
         console.log(formData);
     };
+    
+    
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -96,8 +111,13 @@ const Register = () => {
                         />
                     </div>
 
+
                     <div className="flex items-start">
-                        <input type="checkbox" className="mr-2 mt-1" />
+                        <input
+                            type="checkbox"
+                            className="mr-2 mt-1"
+                            onChange={() => setIsAgreed(!isAgreed)}
+                        />
                         <p className="text-sm">
                             Tôi đã đọc và đồng ý với{" "}
                             <a href="#" className="text-green-500 underline">
@@ -112,11 +132,18 @@ const Register = () => {
                     </div>
 
                     <button
-                        type="submit"
-                        className="w-full bg-green-500 text-white rounded-md py-2 font-semibold hover:bg-green-600"
-                    >
-                        Đăng ký
-                    </button>
+    type="submit"
+    className={`w-full ${
+        formData.password && formData.confirmPassword && formData.email && formData.name
+            ? 'bg-green-500 hover:bg-green-600'
+            : 'bg-gray-400 cursor-not-allowed'
+    } text-white rounded-md py-2 font-semibold`}
+    disabled={
+        !(formData.password && formData.confirmPassword && formData.email && formData.name)
+    }
+>
+    Đăng ký
+</button>
                 </form>
 
                 <div className="flex items-center justify-center my-4">
