@@ -9,7 +9,6 @@ import SearchSection from '../../Redux/Slider/SearchSection'
 import Videobaner from '../../Redux/Video/Videobaner'
 import MarketInfo from '../../Redux/MarketInfo/MarketInfo'
 
-
 export const HomePage = () => {
   return (
     <>

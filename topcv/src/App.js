@@ -7,6 +7,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import Login from './services/Login';
 import Register from './services/Register';
 
+
 function App() {
   return (
     <div className="App">

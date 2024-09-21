@@ -17,7 +17,8 @@ export const TopcvEcosystem = () => {
                                 <div className="text-[#172530] text-[14px] font-medium leading-[20px] w-[70%]">
                                     Nền tảng công nghệ tuyển dụng thông minh TopCV.vn
                                 </div>
-                                <a className="flex items-center justify-center bg-[#00b14f] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" href="https://topcv.vn">
+                                <a className="flex items-center justify-center bg-[#00b14f] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" 
+                                href="">
                                     <span>Tìm hiểu thêm →</span>
                                 </a>
                             </div>
@@ -35,7 +36,8 @@ export const TopcvEcosystem = () => {
                                 <div className="text-[#172530] text-[14px] font-medium leading-[20px] w-[70%]">
                                     Nền tảng quản lý và gia tăng trải nghiệm nhân viên HappyTime.vn
                                 </div>
-                                <a className="flex items-center justify-center bg-[#ff8010] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" href="https://topcv.vn">
+                                <a className="flex items-center justify-center bg-[#ff8010] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" 
+                                href="">
                                     <span>Tìm hiểu thêm →</span>
                                 </a>
                             </div>
@@ -53,7 +55,8 @@ export const TopcvEcosystem = () => {
                                 <div className="text-[#172530] text-[14px] font-medium leading-[20px] w-[70%]">
                                     Nền tảng đánh giá năng lực nhân viên TestCenter.vn
                                 </div>
-                                <a className="flex items-center justify-center bg-[#2d4b9f] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" href="https://topcv.vn">
+                                <a className="flex items-center justify-center bg-[#2d4b9f] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" 
+                                href="">
                                     <span>Tìm hiểu thêm →</span>
                                 </a>
                             </div>
@@ -71,7 +74,8 @@ export const TopcvEcosystem = () => {
                                 <div className="text-[#172530] text-[14px] font-medium leading-[20px] w-[70%]">
                                     Giải pháp quản trị tuyển dụng hiệu suất cao SHiring.ai
                                 </div>
-                                <a className="flex items-center justify-center bg-[#00b14f] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" href="https://topcv.vn">
+                                <a className="flex items-center justify-center bg-[#00b14f] rounded-[4px] text-white text-[12px] font-normal h-[32px] leading-[16px] mt-[40px] px-[8px] w-[135px] transition-opacity duration-100 ease-in opacity-0 invisible group-hover:opacity-100 group-hover:visible" target="_blank" 
+                                href="">
                                     <span>Tìm hiểu thêm →</span>
                                 </a>
                             </div>
