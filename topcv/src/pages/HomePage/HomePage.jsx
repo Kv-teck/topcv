@@ -8,6 +8,7 @@ import PressAboutTopCV from '../../components/TopCV/PressAboutTopCV'
 import SearchSection from '../../Redux/Slider/SearchSection'
 import Videobaner from '../../Redux/Video/Videobaner'
 import MarketInfo from '../../Redux/MarketInfo/MarketInfo'
+import BuildwithTopCV from '../../components/TopCV/BuildwithTopCV'
 
 export const HomePage = () => {
   return (
@@ -26,18 +27,19 @@ export const HomePage = () => {
         </div>
       </div>
 
-        <div className='bg-gray-100'>
-          <ProductTop />
-        </div>
-        <TopLeading />
-        <TopProminent />
-        <div className='bg-gray-100'>
-          <SuperiorTool />
-        </div>
-        <div className="bg-[url('https://static.topcv.vn/v4/image/welcome/home/impressive_numbers_cover_new.png')] bg-[length:100%]">
-          <AchievementAward />
-        </div >
-        <PressAboutTopCV />
+      <div className='bg-gray-100'>
+        <ProductTop />
+      </div>
+      <TopLeading />
+      <TopProminent />
+      <BuildwithTopCV />
+      <div className='bg-gray-100'>
+        <SuperiorTool />
+      </div>
+      <div className="bg-[url('https://static.topcv.vn/v4/image/welcome/home/impressive_numbers_cover_new.png')] bg-[length:100%]">
+        <AchievementAward />
+      </div >
+      <PressAboutTopCV />
 
 
     </>
