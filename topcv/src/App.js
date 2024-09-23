@@ -5,8 +5,6 @@ import FooterMain from './components/Footer/FooterMain';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
 import { HomePage } from './pages/HomePage/HomePage';
 import Login from './services/Login';
-import { Job } from './pages/Job/Job';
-import BackTop from './components/Footer/BackTop';
 
 
 function App() {
@@ -18,7 +16,6 @@ function App() {
         <Routes>
           <Route path='/' Component={HomePage} />
           <Route path='/login' Component={Login} />
-          <Route path='/job' Component={Job} />
         </Routes>
       </main>
 
