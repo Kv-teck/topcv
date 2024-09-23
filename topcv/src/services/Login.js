@@ -1,5 +1,6 @@
 // src/components/Login.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -87,7 +88,7 @@ const Login = () => {
 
                     {/* Register and Support */}
                     <div className="mt-6 text-center text-gray-600">
-                        <p>Bạn chưa có tài khoản? <a href="#" className="text-green-600">Đăng ký ngay</a></p>
+                        <p>Bạn chưa có tài khoản? <Link to="/register" className="text-green-600">Đăng ký ngay</Link></p>
                         <p className="mt-4">Bạn gặp khó khăn khi tạo tài khoản?</p>
                         <p className="text-green-600">Gọi (+84) 123456789</p>
                     </div>
