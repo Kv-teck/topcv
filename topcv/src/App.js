@@ -6,6 +6,7 @@ import HeaderComponent from './components/Headercomponent/HeaderComponent';
 import { HomePage } from './pages/HomePage/HomePage';
 import Login from './services/Login';
 import { Job } from './pages/Job/Job';
+import BackTop from './components/Footer/BackTop';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <footer>
         <FooterKeyword />
         <FooterMain />
+        <BackTop/>
       </footer>
     </div>
 
