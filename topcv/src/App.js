@@ -2,10 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import FooterKeyword from './components/Footer/FooterKeyword';
 import FooterMain from './components/Footer/FooterMain';
+import BackTop from './components/Footer/BackTop';
 import HeaderComponent from './components/Headercomponent/HeaderComponent';
 import { HomePage } from './pages/HomePage/HomePage';
 import Login from './services/Login';
 import Register from './services/Register';
+import { Job } from './pages/Job/Job';
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' Component={HomePage} />
+          <Route path='/job' Component={Job} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>
@@ -24,6 +27,7 @@ function App() {
       <footer>
         <FooterKeyword />
         <FooterMain />
+        <BackTop />
       </footer>
     </div>
 
