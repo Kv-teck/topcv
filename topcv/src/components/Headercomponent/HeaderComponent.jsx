@@ -17,7 +17,7 @@ export const HeaderComponent = () => {
           </Link>
           {/* Menu links */}
         <div className="hidden md:flex space-x-10 pl-8">
-          <a href="#" className="text-green-600 font-semibold hover:text-green-600">Việc làm</a>
+          <Link to="/job"className="text-green-600 font-semibold hover:text-green-600">Việc làm</Link>
           <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Hồ sơ & CV</a>
           <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Công ty</a>
           <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Công cụ</a>

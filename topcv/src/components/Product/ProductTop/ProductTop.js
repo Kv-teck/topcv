@@ -1,22 +1,42 @@
+import { Link } from 'react-router-dom';
 import Product from '../Product';
+import React, { useState } from 'react';
 
 export const ProductTop = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 12;
+    const totalProducts = 100; // Tổng số sản phẩm
+    const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+    // Giả lập danh sách sản phẩm
+    const products = Array.from({ length: totalProducts }, (_, index) => ({ id: index + 1 }));
+
+    // Lấy sản phẩm cho trang hiện tại
+    const currentProducts = products.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
     return (
-        <div className="container mx-auto ">
-            <div className="flex items-center justify-between py-4 bg-gray-100">
+        <div className="container mx-auto">
+            <div className="flex items-center justify-between py-4 ">
                 <div className="flex items-center space-x-2">
                     <h1 className="text-xl font-bold text-green-600">Việc làm tốt nhất</h1>
                     <span className="text-xs text-gray-400">|</span>
                     <img src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/feature-job/label-toppy-ai.png" alt="TOPPY AI" className="h-6" />
                 </div>
                 <div className="flex items-center space-x-4 mt-4">
-                    <span className="text-green-600">Xem tất cả</span>
-                    <button className="w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100">
+                    <Link to="" className="text-green-600">Xem tất cả</Link>
+                    <button
+                        disabled={currentPage === 1}
+                        onClick={() => setCurrentPage(currentPage - 1)}
+                        className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
-                    <button className="w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100">
+                    <button
+                        disabled={currentPage === totalPages}
+                        onClick={() => setCurrentPage(currentPage + 1)}
+                        className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
@@ -50,7 +70,11 @@ export const ProductTop = () => {
 
 
                     <div className="flex justify-end py-4 space-x-2">
-                        <button className="w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100">
+                        <button
+                            disabled={currentPage === 1}
+                            onClick={() => setCurrentPage(currentPage - 1)}
+                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                             </svg>
@@ -60,7 +84,11 @@ export const ProductTop = () => {
                         <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Thành phố Hồ Chí Minh</button>
                         <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Miền Bắc</button>
                         <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Miền Nam</button>
-                        <button className="w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100">
+                        <button
+                            disabled={currentPage === totalPages}
+                            onClick={() => setCurrentPage(currentPage + 1)}
+                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
@@ -69,32 +97,34 @@ export const ProductTop = () => {
 
                 </div>
             </div>
+            {/* Danh sách sản phẩm */}
             <div className="grid grid-cols-3 gap-4">
-                <Product />
-                <Product />
-                <Product />
-
-                <Product />
-                <Product />
-                <Product />
-
-                <Product />
-                <Product />
-                <Product />
+                {currentProducts.map(product => (
+                    <Product key={product.id} />
+                ))}
             </div>
-            <div className="flex items-center justify-center space-x-4 p-4">
 
-                <button className="w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100">
+            {/* Phân trang */}
+            <div className="flex items-center justify-center space-x-4 p-4">
+                <button
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                    className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
 
                 <div className="text-gray-500">
-                    <span className="text-green-600 font-medium">2</span> / 54 trang
+                    <span className="text-green-600 font-medium">{currentPage}</span> / {totalPages} trang
                 </div>
 
-                <button className="w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100">
+                <button
+                    disabled={currentPage === totalPages}
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                    className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>

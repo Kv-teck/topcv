@@ -29,9 +29,10 @@ namespace API.Controllers
 
             var user = new AppUser
             {
+                Name = registerDto.Name,
                 UserName = registerDto.Username,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)), // Mã băm
+                PasswordSalt = hmac.Key // Khóa băm
             };
             _context.Users.Add(user);
 
@@ -40,6 +41,7 @@ namespace API.Controllers
             return new UserDto
             {
                 Username = user.UserName,
+                Name = registerDto.Name,
                 Token = _tokenService.CreateToken(user)
             };
         }
@@ -48,19 +50,24 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
-            if (user == null) return Unauthorized("Invalid username");
+            if (user == null) return Unauthorized("Tên người dùng không hợp lệ");
+
             using var hmac = new HMACSHA512(user.PasswordHash);
             var computeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
             for (int i = 0; i < computeHash.Length; i++)
             {
-                if (computeHash[i] != user.PasswordHash[i]) return Unauthorized("Invailid password");
+                if (computeHash[i] != user.PasswordHash[i]) return Unauthorized("Mật khẩu không hợp lệ");
             }
+
+
             return new UserDto
             {
+                Name = user.Name,
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
         }
+
 
         private async Task<bool> UserExists(string username)
         {

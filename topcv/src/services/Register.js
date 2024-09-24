@@ -43,8 +43,13 @@ const Register = () => {
                 navigate('/login'); // Chuyển hướng đến trang home hoặc trang mà bạn muốn
             }
         } catch (error) {
-            setErrorMessage('Đăng ký thất bại. Vui lòng kiểm tra thông tin.');
+            if (error.response && error.response.data) {
+                setErrorMessage(error.response.data.message || 'Đăng ký thất bại. Vui lòng kiểm tra thông tin.');
+            } else {
+                setErrorMessage('Lỗi kết nối hoặc hệ thống. Vui lòng thử lại sau.');
+            }
         }
+        
     };
 
     return (
