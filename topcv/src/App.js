@@ -8,28 +8,41 @@ import { HomePage } from './pages/HomePage/HomePage';
 import Login from './services/Login';
 import Register from './services/Register';
 import { Job } from './pages/Job/Job';
+import STATE from './context/initState';
+import { Provider } from './context/context';
+import { useReducer} from 'react';
+import reducer from './context/reducer';
 
 
 function App() {
+  const DATA = localStorage.getItem("state") ? JSON.parse(localStorage.getItem("state")) : STATE;
+  const [state, dispatch] = useReducer(reducer, DATA);
   return (
-    <div className="App">
-      <HeaderComponent />
+    <Provider value={{ state, dispatch }}>
+      <div id="spinner" className={`fixed inset-0 flex items-center justify-center bg-white ${state.isLoading ? 'block' : 'hidden'}`}>
+        <div className="animate-spin h-12 w-12 border-4 border-blue-500 border-t-transparent rounded-full" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div className="App">
+        <HeaderComponent />
 
-      <main>
-        <Routes>
-          <Route path='/' Component={HomePage} />
-          <Route path='/job' Component={Job} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-        </Routes>
-      </main>
+        <main>
+          <Routes>
+            <Route path='/' Component={HomePage} />
+            <Route path='/job' Component={Job} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+          </Routes>
+        </main>
 
-      <footer>
-        <FooterKeyword />
-        <FooterMain />
-        <BackTop />
-      </footer>
-    </div>
+        <footer>
+          <FooterKeyword />
+          <FooterMain />
+          <BackTop />
+        </footer>
+      </div>
+    </Provider>
 
   );
 }
