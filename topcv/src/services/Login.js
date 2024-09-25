@@ -1,36 +1,41 @@
 // src/components/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios"; 
+import axios from "axios";
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState(''); // Change state to username
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setErrorMessage('');
-    
+        setLoading(true);
+
         try {
             const response = await axios.post('https://localhost:5208/api/Account/login', {
-                username: email, 
+                username, // Use username state
                 password
             });
-            console.log(response); // Kiểm tra nội dung phản hồi
-    
+            console.log(response);
+
             if (response.data.token) {
                 localStorage.setItem('authToken', response.data.token);
                 alert('Đăng nhập thành công!');
                 navigate('/home');
             }
         } catch (error) {
+            console.error(error);
             if (error.response) {
                 setErrorMessage(error.response.data.message || 'Đăng nhập thất bại. Vui lòng kiểm tra thông tin.');
             } else {
                 setErrorMessage('Lỗi kết nối. Vui lòng thử lại sau.');
             }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -46,7 +51,7 @@ const Login = () => {
 
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
-                        <label className="block text-gray-500 text-justify">Email</label>
+                        <label className="block text-gray-500 text-justify">Username</label>
                         <div className="relative">
                             <span className="absolute left-2 top-1/2 transform -translate-y-1/2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5 text-green-600">
@@ -55,11 +60,11 @@ const Login = () => {
                                 </svg>
                             </span>
                             <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                type="text"
+                                value={username} // Bind the value to the username state
+                                onChange={(e) => setUsername(e.target.value)} // Set the username state on change
                                 className="w-full px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                                placeholder="Email"
+                                placeholder="Username"
                                 required
                             />
                         </div>
@@ -90,9 +95,10 @@ const Login = () => {
 
                     <button
                         type="submit"
-                        className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+                        disabled={loading}
+                        className={`w-full bg-green-600 text-white py-2 rounded-lg ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-700'} transition`}
                     >
-                        Đăng nhập
+                        {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}
                     </button>
 
                     <div className="mt-6 text-center">
@@ -110,7 +116,7 @@ const Login = () => {
                         <p className="text-green-600">Gọi (+84) 123456789</p>
                     </div>
 
-                    {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
+                    {errorMessage && <p className="text-red-500 text-center" aria-live="assertive">{errorMessage}</p>}
                 </form>
             </div>
         </div>

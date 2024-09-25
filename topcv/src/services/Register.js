@@ -1,15 +1,16 @@
-// src/components/Register.js
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from "axios"; // Thêm axios để gửi yêu cầu
+import axios from "axios";
 
 const Register = () => {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
+        username: '',
+        email: '', // Thêm trường email
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
     });
+
     const [isAgreed, setIsAgreed] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
@@ -28,28 +29,30 @@ const Register = () => {
             return;
         }
 
-        try {
-            const response = await axios.post('https://localhost:5208/api/Account/register', {
-                username: formData.email, // Giả sử bạn đang sử dụng email làm username
-                password: formData.password,
-                name: formData.name
-            });
+        const payload = {
+            username: formData.username,
+            password: formData.password,
+            name: formData.name,
+            email: formData.email, // Thêm trường email vào payload
+        };
 
-            // Xử lý phản hồi từ API
+
+        try {
+            const response = await axios.post('https://localhost:5208/api/Account/register', payload);
+
             if (response.data.token) {
                 localStorage.setItem('authToken', response.data.token);
                 alert('Đăng ký thành công!');
-                // Chuyển hướng hoặc thực hiện hành động khác ở đây
-                navigate('/login'); // Chuyển hướng đến trang home hoặc trang mà bạn muốn
+                navigate('/login');
             }
         } catch (error) {
             if (error.response && error.response.data) {
+                console.log("Lỗi từ API:", error.response.data);
                 setErrorMessage(error.response.data.message || 'Đăng ký thất bại. Vui lòng kiểm tra thông tin.');
             } else {
                 setErrorMessage('Lỗi kết nối hoặc hệ thống. Vui lòng thử lại sau.');
             }
         }
-        
     };
 
     return (
@@ -79,10 +82,10 @@ const Register = () => {
                     {/* Email */}
                     <div className="flex items-center border rounded-md px-3 py-2">
                         <input
-                            type="email"
-                            name="email"
-                            placeholder="Nhập email"
-                            value={formData.email}
+                            type="text"
+                            name="username"
+                            placeholder="Tên đăng nhập"
+                            value={formData.username}
                             onChange={handleChange}
                             className="w-full focus:outline-none"
                             required
@@ -136,13 +139,12 @@ const Register = () => {
                     {/* Nút Đăng ký */}
                     <button
                         type="submit"
-                        className={`w-full ${
-                            formData.password && formData.confirmPassword && formData.email && formData.name && isAgreed
+                        className={`w-full ${formData.password && formData.confirmPassword && formData.username && formData.name && isAgreed
                                 ? 'bg-green-500 hover:bg-green-600'
                                 : 'bg-gray-400 cursor-not-allowed'
-                        } text-white rounded-md py-2 font-semibold`}
+                            } text-white rounded-md py-2 font-semibold`}
                         disabled={
-                            !(formData.password && formData.confirmPassword && formData.email && formData.name && isAgreed)
+                            !(formData.password && formData.confirmPassword && formData.username && formData.name && isAgreed)
                         }
                     >
                         Đăng ký

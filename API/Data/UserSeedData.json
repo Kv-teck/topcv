@@ -1,0 +1,88 @@
+{
+    "id": 12345,
+    "fullName": "Nguyen Van A",
+    "email": "nguyenvana@gmail.com",
+    "phoneNumber": "+84 912345678",
+    "profileTitle": "Software Engineer",
+    "address": {
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "street": "123 Nguyen Trai"
+    },
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/nguyenvana/",
+      "github": "https://github.com/nguyenvana",
+      "portfolio": "https://portfolio.com/nguyenvana"
+    },
+    "summary": "Experienced software engineer with 5+ years in developing scalable web applications...",
+    "experience": [
+      {
+        "jobTitle": "Full Stack Developer",
+        "company": "ABC Tech",
+        "location": "Hanoi, Vietnam",
+        "startDate": "2021-01-01",
+        "endDate": "Present",
+        "responsibilities": [
+          "Developed and maintained full-stack web applications",
+          "Collaborated with UI/UX designers and product managers to implement features",
+          "Led the migration of legacy systems to modern web frameworks"
+        ]
+      },
+      {
+        "jobTitle": "Backend Developer",
+        "company": "XYZ Solutions",
+        "location": "Ho Chi Minh City, Vietnam",
+        "startDate": "2018-06-01",
+        "endDate": "2020-12-31",
+        "responsibilities": [
+          "Developed microservices architecture",
+          "Optimized server performance for high traffic",
+          "Integrated third-party APIs for payment processing"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Science in Computer Science",
+        "institution": "University of Technology",
+        "location": "Hanoi, Vietnam",
+        "startDate": "2014-09-01",
+        "endDate": "2018-06-01",
+        "achievements": [
+          "Graduated with Distinction",
+          "Member of the Robotics Club"
+        ]
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "SQL",
+      "Docker",
+      "Kubernetes"
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Solutions Architect",
+        "issuedBy": "Amazon Web Services",
+        "issueDate": "2020-05-15",
+        "credentialId": "1234-5678-91011"
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "Fluent"
+      },
+      {
+        "name": "Vietnamese",
+        "proficiency": "Native"
+      }
+    ],
+    "interests": [
+      "AI and Machine Learning",
+      "Blockchain technology",
+      "Open-source projects"
+    ]
+  }
