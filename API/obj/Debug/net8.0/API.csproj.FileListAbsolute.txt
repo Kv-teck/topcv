@@ -141,3 +141,4 @@ C:\Users\Doan Dinh\OneDrive\Máy tính\REACTJS\API\obj\Debug\net8.0\refint\API.d
 C:\Users\Doan Dinh\OneDrive\Máy tính\REACTJS\API\obj\Debug\net8.0\API.pdb
 C:\Users\Doan Dinh\OneDrive\Máy tính\REACTJS\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\Doan Dinh\OneDrive\Máy tính\REACTJS\API\obj\Debug\net8.0\ref\API.dll
+C:\Users\Doan Dinh\OneDrive\Máy tính\REACTJS\API\bin\Debug\net8.0\Data\UserSeedData.json
