@@ -1,7 +1,9 @@
 export const FormTopProminent = () => {
     return (
         <>
-            <div className="bg-white p-6 rounded-2xl shadow flex flex-col items-center hover:shadow hover:shadow-green-700">
+            <div className="bg-[#f3f5f7] p-6 rounded-2xl flex flex-col items-center border border-transparent 
+    hover:shadow-[0_12px_24px_rgba(34,197,94,0.2)] hover:bg-white hover:scale-103 
+    hover:border-green-500 transition-all duration-300 ease-in-out">
                 <div className="mb-4">
                     <img src="https://www.topcv.vn/v4/image/welcome/top-categories/kinh-doanh-ban-hang.png?v=2" alt="Company 1 Logo" className="w-40 h-40 mx-auto mt-5" />
                 </div>
