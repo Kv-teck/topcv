@@ -13,6 +13,9 @@ export const ProductTop = () => {
 
     // Lấy sản phẩm cho trang hiện tại
     const currentProducts = products.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
+
+    // Tính toán số lượng placeholder nếu không đủ sản phẩm
+    const placeholderCount = productsPerPage - currentProducts.length;
     return (
         <div className="container mx-auto">
             <div className="flex items-center justify-between py-4 ">
@@ -101,6 +104,12 @@ export const ProductTop = () => {
             <div className="grid grid-cols-3 gap-4">
                 {currentProducts.map(product => (
                     <Product key={product.id} />
+                ))}
+                {/* Thêm các placeholder ẩn nếu không đủ sản phẩm */}
+                {Array.from({ length: placeholderCount }).map((_, index) => (
+                    <div key={index} className="invisible">
+                        <Product />
+                    </div>
                 ))}
             </div>
 
