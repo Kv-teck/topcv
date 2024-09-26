@@ -4,7 +4,7 @@ import FormTopleading from "./FormTopleading";
 export const TopLeading = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 4;
-    const totalProducts = 100; // Tổng số sản phẩm
+    const totalProducts = 5; // Tổng số sản phẩm
     const totalPages = Math.ceil(totalProducts / productsPerPage);
 
     // Giả lập danh sách sản phẩm
@@ -23,19 +23,21 @@ export const TopLeading = () => {
                         <button
                             disabled={currentPage === 1}
                             onClick={() => setCurrentPage(currentPage - 1)}
-                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-10 h-10 rounded-full border flex items-center justify-center 
+        ${currentPage === 1 ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'border-[#33c172] text-green-600 hover:bg-[#33c172] hover:text-white'}`}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
                         <button
                             disabled={currentPage === totalPages}
                             onClick={() => setCurrentPage(currentPage + 1)}
-                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center 
+        ${currentPage === totalPages ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'text-green-600 hover:bg-[#33c172] hover:text-white'}`}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
                     </div>

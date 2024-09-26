@@ -4,7 +4,8 @@ export const Product = () => {
 
     return (
         <>
-            <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 flex items-end space-x-4 hover:shadow hover:shadow-green-700">
+            <div className="bg-white border border-gray-100 rounded-lg p-4 flex items-end space-x-4
+    hover:bg-[#f3f5f7] hover:border-gray-300 hover:text-green-600">
                 <div className="flex-shrink-0">
                     <img
                         src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg"
@@ -13,10 +14,10 @@ export const Product = () => {
                     />
                 </div>
 
-                <div className="flex-1 hover:text-green-600">
+                <div className="flex-1">
                     <div className="flex items-center">
                         <a className="px-2 py-0 bg-red-600 text-white rounded-full mr-1">HOT</a>
-                        <h3 className="text-xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-[270px]">
+                        <h3 className="text-xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-[270px] group-hover:text-green-600">
                             Nhân Viên Xử Lý Đơn Hàng / Process
                         </h3>
                     </div>
@@ -41,13 +42,12 @@ export const Product = () => {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        xmlns="http://www.w3.org/2000/svg"
+                        className="text-gray-400"  // Thêm màu sắc cho SVG
                     >
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                     </svg>
                 </div>
             </div>
-
 
             <div id="job-details" className="absolute top-0 left-1/3 w-2/3 bg-white shadow-md rounded-lg p-6 hidden z-10">
                 <div className="flex items-center space-x-4">

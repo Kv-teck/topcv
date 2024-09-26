@@ -29,19 +29,22 @@ export const ProductTop = () => {
                     <button
                         disabled={currentPage === 1}
                         onClick={() => setCurrentPage(currentPage - 1)}
-                        className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`w-10 h-10 rounded-full border flex items-center justify-center 
+        ${currentPage === 1 ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'border-[#33c172] text-green-600 hover:bg-[#33c172] hover:text-white'}`}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
+
                     <button
                         disabled={currentPage === totalPages}
                         onClick={() => setCurrentPage(currentPage + 1)}
-                        className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center 
+        ${currentPage === totalPages ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'text-green-600 hover:bg-[#33c172] hover:text-white'}`}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
@@ -74,26 +77,22 @@ export const ProductTop = () => {
 
                     <div className="flex justify-end py-4 space-x-2">
                         <button
-                            disabled={currentPage === 1}
-                            onClick={() => setCurrentPage(currentPage - 1)}
-                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            className="w-10 h-10 rounded-full border flex items-center justify-center 
+                            border-[#33c172] text-green-600 hover:bg-[#33c172] hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
-                        <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Ngẫu Nhiên</button>
-                        <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Hà Nội</button>
-                        <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Thành phố Hồ Chí Minh</button>
-                        <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Miền Bắc</button>
-                        <button className="px-4 py-2 text-gray-600 rounded-full shadow hover:bg-green-100">Miền Nam</button>
+                        <button className="px-4 py-2 text-gray-900 font-medium rounded-full bg-gray-200 border hover:border-[#33c172]">Ngẫu Nhiên</button>
+                        <button className="px-4 py-2 text-gray-900 font-medium rounded-full bg-gray-200 border hover:border-[#33c172]">Hà Nội</button>
+                        <button className="px-4 py-2 text-gray-900 font-medium rounded-full bg-gray-200 border hover:border-[#33c172]">Thành phố Hồ Chí Minh</button>
+                        <button className="px-4 py-2 text-gray-900 font-medium rounded-full bg-gray-200 border hover:border-[#33c172]">Miền Bắc</button>
+                        <button className="px-4 py-2 text-gray-900 font-medium rounded-full bg-gray-200 border hover:border-[#33c172]">Miền Nam</button>
                         <button
-                            disabled={currentPage === totalPages}
-                            onClick={() => setCurrentPage(currentPage + 1)}
-                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            className="w-10 h-10 rounded-full border border-green-600 flex items-center justify-center 
+                            text-green-600 hover:bg-[#33c172] hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
                     </div>
@@ -118,10 +117,11 @@ export const ProductTop = () => {
                 <button
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage(currentPage - 1)}
-                    className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-10 h-10 rounded-full border flex items-center justify-center 
+        ${currentPage === 1 ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'border-[#33c172] text-green-600 hover:bg-[#33c172] hover:text-white'}`}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
 
@@ -132,10 +132,11 @@ export const ProductTop = () => {
                 <button
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage(currentPage + 1)}
-                    className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center text-green-600 hover:bg-green-100 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center 
+        ${currentPage === totalPages ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'text-green-600 hover:bg-[#33c172] hover:text-white'}`}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
             </div>
