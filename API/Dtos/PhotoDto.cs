@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.Entities
+namespace API.Dtos
 {
-    public class Skill
+    public class PhotoDto
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
+        public string? Url { get; set; }
+        public bool IsMain { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace API.Data
             foreach (var user in users)
             {
                 // Convert UserName về lowercase để tránh vấn đề so sánh không phân biệt hoa thường
-                user.UserName = user.Email.ToLower();
+                user.UserName = user.Email!.ToLower();
                 
                 // Tạo người dùng với mật khẩu mặc định
                 await userManager.CreateAsync(user, "Pa$$w0rd");

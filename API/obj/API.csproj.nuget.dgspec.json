@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj": {}
+    "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\topcv\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj": {
+    "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\topcv\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\topcv\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\topcv\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Doan Dinh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\API\\obj\\",
+        "outputPath": "C:\\Users\\Doan Dinh\\OneDrive\\Máy tính\\REACTJS\\topcv\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Doan Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.8, )"

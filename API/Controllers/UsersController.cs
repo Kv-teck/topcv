@@ -1,9 +1,9 @@
-using System.Buffers.Text;
-using API.Data;
 using API.Entities;
+using API.Interfaes; // Đảm bảo thêm dòng này
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -11,35 +11,27 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class UsersController : BaseApiController
     {
-        private readonly Datacontext _context;
+        private readonly IUserRepository _userRepository;
 
-        public UsersController(Datacontext context)
+        public UsersController(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
 
-
-        // GET: api/users
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
-            var users = await _context.Users.ToListAsync();
+            var users = await _userRepository.GetUsersAsync();
             return Ok(users);
         }
 
-        // GET: api/users/{id}
         [Authorize]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AppUser>> GetUser(int id)
+        [HttpGet("{username}")]
+        public async Task<ActionResult<AppUser>> GetUser(string username)
         {
-            var user = await _context.Users.FindAsync(id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
+            var user = await _userRepository.GetUserByUsernameAsync(username);
+            if (user == null) return NotFound();
             return Ok(user);
         }
     }

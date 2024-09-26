@@ -8,8 +8,8 @@ namespace API.Entities
 {
     public class AppUserRole : IdentityUserRole<int>
     {
-        public required AppUser User{ get; set; }
-        public required AppRole Role{ get; set; }
+        public AppUser User{ get; set; }
+        public AppRole Role{ get; set; }
 
     }
 }
