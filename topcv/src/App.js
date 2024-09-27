@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
 import FooterKeyword from './components/Footer/FooterKeyword';
 import FooterMain from './components/Footer/FooterMain';
 import BackTop from './components/Footer/BackTop';
@@ -12,7 +11,7 @@ import STATE from './context/initState';
 import { Provider } from './context/context';
 import { useReducer} from 'react';
 import reducer from './context/reducer';
-
+import Profile from './members/Profile';
 
 function App() {
   const DATA = localStorage.getItem("state") ? JSON.parse(localStorage.getItem("state")) : STATE;
@@ -26,16 +25,15 @@ function App() {
       </div>
       <div className="App">
         <HeaderComponent />
-
         <main>
           <Routes>
             <Route path='/' Component={HomePage} />
             <Route path='/job' Component={Job} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/profile' element={<Profile />} />
           </Routes>
         </main>
-
         <footer>
           <FooterKeyword />
           <FooterMain />
@@ -43,7 +41,6 @@ function App() {
         </footer>
       </div>
     </Provider>
-
   );
 }
 

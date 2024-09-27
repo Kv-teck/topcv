@@ -32,18 +32,26 @@ export const HeaderComponent = () => {
             <a href="#" className="text-gray-800 font-semibold hover:text-green-600">Cẩm nang nghề nghiệp</a>
           </div>
         </div>
-        
+
         {/* Notification & Profile section */}
         <div className="flex items-center space-x-4">
           {username ? (
             <>
               <span className="text-gray-800">Xin chào, {username}!</span> {/* Display username */}
+              <Link to="/profile" className="bg-blue-600 text-white px-4 py-2 font-semibold rounded hover:bg-blue-700">
+                Hồ Sơ
+              </Link> {/* Profile button */}
               <button 
                 onClick={handleLogout} 
                 className="bg-red-600 text-white px-4 py-2 font-semibold rounded hover:bg-red-700"
               >
                 Đăng xuất
               </button>
+              <div className="flex items-center space-x-4">
+                <button className="bg-gray-800 text-white px-4 py-2 font-semibold rounded hover:bg-gray-900">
+                  Đăng tuyển & tìm hồ sơ
+                </button>
+              </div>
             </>
           ) : (
             <div className="flex items-center space-x-4">

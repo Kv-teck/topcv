@@ -26,7 +26,6 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
-
       <div className='bg-gray-100'>
         <ProductTop />
       </div>
@@ -40,8 +39,6 @@ export const HomePage = () => {
         <AchievementAward />
       </div >
       <PressAboutTopCV />
-
-
     </>
   )
 }

@@ -1,6 +1,14 @@
 import axios from 'axios';
 
-const API_URL = 'https://localhost:5208/api'; // Thay URL này thành URL thực tế của backend của bạn
+const API_URL = 'https://localhost:5208/api'; // Replace with your actual backend URL
+
+// Cấu hình axios để thêm token vào headers
+const getAuthHeaders = () => {
+    const token = localStorage.getItem('authToken'); // Thay đổi tên khóa nếu cần
+    return {
+        Authorization: `Bearer ${token}`,
+    };
+};
 
 // Hàm đăng ký người dùng
 export const register = async (userData) => {
@@ -8,7 +16,6 @@ export const register = async (userData) => {
         const response = await axios.post(`${API_URL}/Account/register`, userData);
         return response.data;
     } catch (error) {
-        // Xử lý lỗi: nếu API trả về lỗi, ném ra thông báo lỗi từ phản hồi API hoặc lỗi chung
         throw error.response ? error.response.data : 'Đăng ký thất bại. Vui lòng thử lại sau.';
     }
 };
@@ -19,7 +26,6 @@ export const login = async (userData) => {
         const response = await axios.post(`${API_URL}/Account/login`, userData);
         return response.data;
     } catch (error) {
-        // Xử lý lỗi: tương tự với đăng ký
         throw error.response ? error.response.data : 'Đăng nhập thất bại. Vui lòng thử lại sau.';
     }
 };
@@ -34,10 +40,12 @@ export const getMembers = async () => {
     }
 };
 
-// Lấy thông tin chi tiết của một member
-export const getMemberById = async (id) => {
+// Hàm lấy thông tin chi tiết của một member
+export const getMemberById = async (username) => {
     try {
-        const response = await axios.get(`${API_URL}/users/${id}`);
+        const response = await axios.get(`${API_URL}/users/${username}`, {
+            headers: getAuthHeaders(),
+        });
         return response.data;
     } catch (error) {
         throw error.response ? error.response.data : 'Lỗi khi lấy thông tin thành viên.';
