@@ -1,10 +1,9 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
+import { login } from '../environments/apiService'; // Import login function from API
 
 const Login = () => {
-    const [username, setUsername] = useState(''); // Change state to username
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
@@ -16,24 +15,17 @@ const Login = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('https://localhost:5208/api/Account/login', {
-                username, // Use username state
-                password
-            });
-            console.log(response);
+            const response = await login({ username, password }); // Call the login function from API
 
-            if (response.data.token) {
-                localStorage.setItem('authToken', response.data.token);
+            if (response.token) { // Check for token
+                localStorage.setItem('authToken', response.token);
+                localStorage.setItem('username', username); // Store username
                 alert('Đăng nhập thành công!');
-                navigate('/home');
+                navigate('/'); // Redirect to the main page after login
             }
         } catch (error) {
             console.error(error);
-            if (error.response) {
-                setErrorMessage(error.response.data.message || 'Đăng nhập thất bại. Vui lòng kiểm tra thông tin.');
-            } else {
-                setErrorMessage('Lỗi kết nối. Vui lòng thử lại sau.');
-            }
+            setErrorMessage(error.message || 'Đăng nhập thất bại. Vui lòng kiểm tra thông tin.');
         } finally {
             setLoading(false);
         }
@@ -50,6 +42,7 @@ const Login = () => {
                 </p>
 
                 <form onSubmit={handleLogin}>
+                    {/* Username Input */}
                     <div className="mb-4">
                         <label className="block text-gray-500 text-justify">Username</label>
                         <div className="relative">
@@ -61,8 +54,8 @@ const Login = () => {
                             </span>
                             <input
                                 type="text"
-                                value={username} // Bind the value to the username state
-                                onChange={(e) => setUsername(e.target.value)} // Set the username state on change
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
                                 className="w-full px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                                 placeholder="Username"
                                 required
@@ -70,6 +63,7 @@ const Login = () => {
                         </div>
                     </div>
 
+                    {/* Password Input */}
                     <div className="mb-4">
                         <label className="block text-gray-500 text-justify">Password</label>
                         <div className="relative">
