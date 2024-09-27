@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getMemberById } from '../environments/apiService'; // Đảm bảo import đúng đường dẫn
+import { getMemberById } from '../environments/apiService';
+import Context from '../context/context';
+import { ACTION } from '../context/reducer';
 
 const Profile = () => {
-    const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const { state, dispatch } = useContext(Context);
+    const { user, isLoading } = state; // Lấy user và isLoading từ context state
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -13,19 +16,26 @@ const Profile = () => {
                 navigate('/login'); // Redirect nếu không có username
                 return;
             }
+
+            dispatch({ type: ACTION.SHOW_LOADING }); // Hiển thị loading khi bắt đầu lấy dữ liệu
             try {
+                // Giả lập thời gian loading
+                await new Promise((resolve) => setTimeout(resolve, 1000)); // Thời gian giả lập 1 giây
                 const userData = await getMemberById(username); // Gọi hàm lấy dữ liệu
-                setUser(userData);
+                dispatch({ type: ACTION.SET_USER, payload: userData }); // Cập nhật user vào context
             } catch (error) {
                 console.error('Lỗi khi lấy thông tin người dùng:', error);
                 navigate('/login'); // Redirect nếu có lỗi
+            } finally {
+                dispatch({ type: ACTION.HIDE_LOADING }); // Ẩn loading khi kết thúc
             }
         };
 
         fetchUserData();
-    }, [navigate]);
+    }, [navigate, dispatch]);
 
-    if (!user) return <div>Loading...</div>; // Trạng thái loading
+    // Hiển thị hiệu ứng loading
+    if (isLoading) return <div>Loading...</div>; // Trạng thái loading
 
     return (
         <div className="container mx-auto p-4">
