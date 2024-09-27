@@ -5,7 +5,7 @@ import axios from "axios";
 const Register = () => {
     const [formData, setFormData] = useState({
         name: '',
-        username: '',
+        userName: '',
         email: '', // Thêm trường email
         password: '',
         confirmPassword: '',
@@ -30,7 +30,7 @@ const Register = () => {
         }
 
         const payload = {
-            username: formData.username,
+            username: formData.userName,
             password: formData.password,
             name: formData.name,
             email: formData.email, // Thêm trường email vào payload

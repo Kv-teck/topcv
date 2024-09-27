@@ -5,11 +5,11 @@ namespace API.Entities
     public class AppUser
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? UserName { get; set; }
-        public byte[]? PasswordHash { get; set; }
-        public byte[]? PasswordSalt { get; set; }
-        public string? Email { get; set; }
+        public required string Name { get; set; }
+        public required string UserName { get; set; }
+        public required byte[] PasswordHash { get; set; }
+        public required byte[] PasswordSalt { get; set; }
+        public required string Email { get; set; }
         public string? PhoneNumber { get; set; }
         public string? ProfileTitle { get; set; }
         public string? City { get; set; }
@@ -25,11 +25,11 @@ namespace API.Entities
         public IList<string> Interests { get; set; } = new List<string>();
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime LastActive { get; set; } = DateTime.Now;
-        public ICollection<Photo>? Photos { get; set; }
+        public ICollection<Photo>? Photos { get; set; } = new List<Photo>();
 
-        public int GetAge()
-        {
-            return DateTime.Today.Year - DateOfBirth.Year;
-        }
+        // public int GetAge()
+        // {
+        //     return DateTime.Today.Year - DateOfBirth.Year;
+        // }
     }
 }

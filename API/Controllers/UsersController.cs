@@ -1,5 +1,7 @@
+using API.Dtos;
 using API.Entities;
-using API.Interfaes; // Đảm bảo thêm dòng này
+using API.Interfaes; // Đảm bảo namespace chính xác
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,27 +14,30 @@ namespace API.Controllers
     public class UsersController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
-        public UsersController(IUserRepository userRepository)
+        public UsersController(IUserRepository userRepository, IMapper mapper)
         {
+            _mapper = mapper;
             _userRepository = userRepository;
         }
 
+        // GET: api/users
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
         {
-            var users = await _userRepository.GetUsersAsync();
-            return Ok(users);
+            var users = await _userRepository.GetMembersAsync();
+
+            return Ok(users); // Trả về danh sách đã được ánh xạ
         }
 
+        // GET: api/users/{username}
         [Authorize]
         [HttpGet("{username}")]
-        public async Task<ActionResult<AppUser>> GetUser(string username)
+        public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(username);
-            if (user == null) return NotFound();
-            return Ok(user);
+            return await _userRepository.GetMemberAsync(username);
         }
     }
 }
