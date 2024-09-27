@@ -1,7 +1,10 @@
 export const FormTopleading = () => {
     return (
         <>
-            <div className="bg-white shadow-md rounded-2xl p-5 text-center hover:shadow hover:shadow-green-700">
+            <div className="bg-white border border-gray-300 rounded-2xl p-5 text-center 
+                hover:shadow-[6px_0_16px_rgba(34,197,94,0.2),-6px_0_16px_rgba(34,197,94,0.2)] hover:scale-103 
+                hover:border-green-500 transition-all duration-300 ease-in-out">
+
                 <div className="relative">
                     <span className="absolute top-0 left-0 bg-orange-500 text-white text-sm font-bold py-1 px-2 rounded-tr-lg">VNR500</span>
                 </div>

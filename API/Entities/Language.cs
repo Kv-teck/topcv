@@ -8,7 +8,7 @@ namespace API.Entities
     public class Language
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Proficiency { get; set; }
+        public required  string Name { get; set; }
+        public required  string Proficiency { get; set; }
     }
 }

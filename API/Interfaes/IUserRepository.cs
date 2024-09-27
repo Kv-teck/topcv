@@ -13,7 +13,10 @@ namespace API.Interfaes // Correct namespace here
         Task<IEnumerable<AppUser>> GetUsersAsync();
         Task<AppUser?> GetUserByIdAsync(int id); // Allow null return
         Task<AppUser?> GetUserByUsernameAsync(string username); // Also consider allowing null here
+        
+        // Get all members as MemberDto
         Task<IEnumerable<MemberDto>> GetMembersAsync();
-        Task<MemberDto> GetMemberAsync(string username);
+        // Get a specific member by username
+        Task<MemberDto?> GetMemberAsync(string username); // Changed to include a parameter for username
     }
 }
