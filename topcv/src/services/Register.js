@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { register } from '../environments/apiService';
 
 const Register = () => {
     const [formData, setFormData] = useState({
         name: '',
-        userName: '',  // Ensure this is userName
+        userName: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -24,30 +25,38 @@ const Register = () => {
         e.preventDefault();
         setErrorMessage('');
 
+        // Kiểm tra mật khẩu và xác nhận mật khẩu có khớp không
         if (formData.password !== formData.confirmPassword) {
             setErrorMessage("Mật khẩu không khớp.");
             return;
         }
 
         const payload = {
-            userName: formData.userName,  // Corrected here
+            userName: formData.userName,
+
+
             password: formData.password,
+
+
             name: formData.name,
             email: formData.email,
         };
 
         try {
-            const response = await axios.post('https://localhost:5208/api/Account/register', payload);
+            // Gọi hàm register từ API và truyền dữ liệu form
+            const response = await register(payload);
 
-            if (response.data.token) {
-                localStorage.setItem('authToken', response.data.token);
+            // Nếu đăng ký thành công, lưu token và điều hướng người dùng
+            if (response.token) {
+                localStorage.setItem('authToken', response.token);
                 alert('Đăng ký thành công!');
                 navigate('/login');
             }
         } catch (error) {
-            if (error.response && error.response.data) {
-                console.log("Lỗi từ API:", error.response.data);
-                setErrorMessage(error.response.data.message || 'Đăng ký thất bại. Vui lòng kiểm tra thông tin.');
+            // Xử lý lỗi từ API
+            if (error.message) {
+                console.log("Lỗi từ API:", error.message);
+                setErrorMessage(error.message || 'Đăng ký thất bại. Vui lòng kiểm tra thông tin.');
             } else {
                 setErrorMessage('Lỗi kết nối hoặc hệ thống. Vui lòng thử lại sau.');
             }
@@ -152,8 +161,8 @@ const Register = () => {
                     <button
                         type="submit"
                         className={`w-full ${formData.password && formData.confirmPassword && formData.userName && formData.name && isAgreed
-                                ? 'bg-green-500 hover:bg-green-600'
-                                : 'bg-gray-400 cursor-not-allowed'
+                            ? 'bg-green-500 hover:bg-green-600'
+                            : 'bg-gray-400 cursor-not-allowed'
                             } text-white rounded-md py-2 font-semibold`}
                         disabled={
                             !(formData.password && formData.confirmPassword && formData.userName && formData.name && isAgreed)
