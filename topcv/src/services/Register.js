@@ -5,8 +5,8 @@ import axios from "axios";
 const Register = () => {
     const [formData, setFormData] = useState({
         name: '',
-        userName: '',
-        email: '', // Thêm trường email
+        userName: '',  // Ensure this is userName
+        email: '',
         password: '',
         confirmPassword: '',
     });
@@ -30,12 +30,11 @@ const Register = () => {
         }
 
         const payload = {
-            username: formData.userName,
+            userName: formData.userName,  // Corrected here
             password: formData.password,
             name: formData.name,
-            email: formData.email, // Thêm trường email vào payload
+            email: formData.email,
         };
-
 
         try {
             const response = await axios.post('https://localhost:5208/api/Account/register', payload);
@@ -82,10 +81,23 @@ const Register = () => {
                     {/* Email */}
                     <div className="flex items-center border rounded-md px-3 py-2">
                         <input
+                            type="email"  // Use type email for validation
+                            name="email"  // Change to match state
+                            placeholder="Nhập email"
+                            value={formData.email}  // Change here
+                            onChange={handleChange}
+                            className="w-full focus:outline-none"
+                            required
+                        />
+                    </div>
+
+                    {/* Tên đăng nhập */}
+                    <div className="flex items-center border rounded-md px-3 py-2">
+                        <input
                             type="text"
-                            name="username"
+                            name="userName"  // Change here
                             placeholder="Tên đăng nhập"
-                            value={formData.username}
+                            value={formData.userName}  // Change here
                             onChange={handleChange}
                             className="w-full focus:outline-none"
                             required
@@ -139,12 +151,12 @@ const Register = () => {
                     {/* Nút Đăng ký */}
                     <button
                         type="submit"
-                        className={`w-full ${formData.password && formData.confirmPassword && formData.username && formData.name && isAgreed
+                        className={`w-full ${formData.password && formData.confirmPassword && formData.userName && formData.name && isAgreed
                                 ? 'bg-green-500 hover:bg-green-600'
                                 : 'bg-gray-400 cursor-not-allowed'
                             } text-white rounded-md py-2 font-semibold`}
                         disabled={
-                            !(formData.password && formData.confirmPassword && formData.username && formData.name && isAgreed)
+                            !(formData.password && formData.confirmPassword && formData.userName && formData.name && isAgreed)
                         }
                     >
                         Đăng ký
