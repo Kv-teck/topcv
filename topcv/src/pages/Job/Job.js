@@ -4,6 +4,7 @@ import TopProminent from '../../components/Top/TopProminent/TopProminent'
 import Searchbar from '../../components/Searchbar/Searchingbar'
 import Context from '../../context/context'
 import { ACTION } from '../../context/reducer'
+import TopLeading from '../../components/Top/TopLeading/TopLeading'
 
 
 export const Job = () => {
@@ -32,6 +33,7 @@ export const Job = () => {
                     <ProductTop />
                 </div>
                 <TopProminent />
+                <TopLeading/>
         </>
     )
 }
