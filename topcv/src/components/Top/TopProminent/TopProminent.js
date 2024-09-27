@@ -41,13 +41,15 @@ export const TopProminent = () => {
                         <button
                             disabled={currentPage === totalPages}
                             onClick={() => setCurrentPage(currentPage + 1)}
-                            className={`w-10 h-10 rounded-full border border-green-600 flex items-center justify-center 
-        ${currentPage === totalPages ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'text-green-600 hover:bg-[#33c172] hover:text-white'}`}
+                            className={`w-10 h-10 rounded-full border flex items-center justify-center transition 
+    ${currentPage === totalPages ? 'border-gray-300 text-gray-300 cursor-not-allowed' :
+                                    'border-green-600 text-green-600 hover:bg-[#33c172] hover:text-white'}`}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
+
                     </div>
                 </div>
 
