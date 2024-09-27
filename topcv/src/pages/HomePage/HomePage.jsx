@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import ProductTop from '../../components/Product/ProductTop/ProductTop'
 import TopLeading from '../../components/Top/TopLeading/TopLeading'
 import TopProminent from '../../components/Top/TopProminent/TopProminent'
@@ -9,8 +9,27 @@ import SearchSection from '../../Redux/Slider/SearchSection'
 import Videobaner from '../../Redux/Video/Videobaner'
 import MarketInfo from '../../Redux/MarketInfo/MarketInfo'
 import BuildwithTopCV from '../../components/TopCV/BuildwithTopCV'
+import Context from '../../context/context'
+import { ACTION } from '../../context/reducer'
 
 export const HomePage = () => {
+  const { state, dispatch } = useContext(Context);
+
+  const fetchData = async () => {
+    dispatch({ type: ACTION.SHOW_LOADING });
+    try {
+      // Giả lập yêu cầu API
+      await new Promise((resolve) => setTimeout(resolve, 1000)); 
+      // Thêm logic lấy dữ liệu ở đây
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch({ type: ACTION.HIDE_LOADING });
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
       <div className="bg-[url('https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/bg_header.webp')] bg-[length:100%]">

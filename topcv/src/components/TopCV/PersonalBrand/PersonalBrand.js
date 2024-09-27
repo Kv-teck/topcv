@@ -24,7 +24,7 @@ export const PersonalBrand = () => {
                         </svg>
                     </a>
                 </div>
-                <div className="relative right-0 top-0 z-10 w-1/3">
+                <div className="relative right-[-100px] top-0 z-10 w-1/3">
                     <img className="align-middle border-0 w-[144px]" data-src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/sel-growth/profile-desktop.png"
                         alt="Profile" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/welcome/sel-growth/profile-desktop.png" />
                 </div>
