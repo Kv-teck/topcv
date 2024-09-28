@@ -1,14 +1,26 @@
 import axios from 'axios';
 
-const API_URL = 'https://localhost:5208/api'; // Replace with your actual backend URL
+const API_URL = process.env.REACT_APP_API_URL || 'https://localhost:5208/api'; // Replace with your actual backend URL
 
 // Cấu hình axios để thêm token vào headers
 const getAuthHeaders = () => {
-    const token = localStorage.getItem('authToken'); // Thay đổi tên khóa nếu cần
+    const token = localStorage.getItem('authToken');
     return {
         Authorization: `Bearer ${token}`,
     };
 };
+
+// Cấu hình axios với interceptor để tự động thêm headers cho tất cả các request
+axios.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => Promise.reject(error)
+);
 
 // Hàm đăng ký người dùng
 export const register = async (userData) => {
@@ -43,29 +55,17 @@ export const getMembers = async () => {
 // Hàm lấy thông tin chi tiết của một member
 export const getMemberById = async (username) => {
     try {
-        const response = await axios.get(`${API_URL}/users/${username}`, {
-            headers: getAuthHeaders(),
-        });
+        const response = await axios.get(`${API_URL}/users/${username}`);
         return response.data;
     } catch (error) {
         throw error.response ? error.response.data : 'Lỗi khi lấy thông tin thành viên.';
     }
 };
 
-// Thêm một member mới
-export const addMember = async (memberData) => {
+// Hàm cập nhật thông tin thành viên
+export const updateMember = async (user) => {
     try {
-        const response = await axios.post(`${API_URL}/members`, memberData);
-        return response.data;
-    } catch (error) {
-        throw error.response ? error.response.data : 'Lỗi khi thêm thành viên.';
-    }
-};
-
-// Cập nhật thông tin member
-export const updateMember = async (id, memberData) => {
-    try {
-        const response = await axios.put(`${API_URL}/users/${id}`, memberData);
+        const response = await axios.put(`${API_URL}/users/${user.userName}`, user);
         return response.data;
     } catch (error) {
         throw error.response ? error.response.data : 'Lỗi khi cập nhật thông tin thành viên.';
