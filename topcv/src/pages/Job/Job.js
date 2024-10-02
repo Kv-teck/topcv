@@ -4,6 +4,8 @@ import TopProminent from '../../components/Top/TopProminent/TopProminent'
 import Searchbar from '../../components/Searchbar/Searchingbar'
 import Context from '../../context/context'
 import { ACTION } from '../../context/reducer'
+import TopLeading from '../../components/Top/TopLeading/TopLeading'
+import AdvertisingBanner from '../../components/AdvertisingBanner/AdvertisingBanner'
 
 
 export const Job = () => {
@@ -13,7 +15,7 @@ export const Job = () => {
         dispatch({ type: ACTION.SHOW_LOADING });
         try {
             // Giả lập yêu cầu API
-            await new Promise((resolve) => setTimeout(resolve, 1000)); 
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             // Thêm logic lấy dữ liệu ở đây
         } catch (error) {
             console.error(error);
@@ -27,11 +29,14 @@ export const Job = () => {
     }, []);
     return (
         <>
-                <Searchbar />
-                <div className='bg-gray-100'>
-                    <ProductTop />
-                </div>
-                <TopProminent />
+            <Searchbar />
+            <div className='bg-gray-100'>
+                <ProductTop />
+            </div>
+            <AdvertisingBanner />
+            <TopLeading />
+            <TopProminent />
+
         </>
     )
 }

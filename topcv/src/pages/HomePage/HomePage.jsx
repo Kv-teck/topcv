@@ -19,7 +19,7 @@ export const HomePage = () => {
     dispatch({ type: ACTION.SHOW_LOADING });
     try {
       // Giả lập yêu cầu API
-      await new Promise((resolve) => setTimeout(resolve, 1000)); 
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       // Thêm logic lấy dữ liệu ở đây
     } catch (error) {
       console.error(error);
