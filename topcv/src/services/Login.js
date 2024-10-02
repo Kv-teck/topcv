@@ -31,6 +31,16 @@ const Login = () => {
         }
     };
 
+    // Hiển thị spinner khi đang loading
+    if (loading) 
+        return (
+            <div id="spinner" className="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75">
+                <div className="animate-spin h-16 w-16 border-4 border-green-500 border-t-transparent rounded-full" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        );
+
     return (
         <div className="flex items-center justify-center h-screen bg-gray-50">
             <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-2xl">

@@ -1,57 +1,218 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getMemberById } from '../environments/apiService';
-import Context from '../context/context';
-import { ACTION } from '../context/reducer';
+import { getMemberById, updateMember } from '../environments/apiService'; // Ensure the import path is correct
 
 const Profile = () => {
+    const [user, setUser] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [photos, setPhotos] = useState([]); // State for managing photos
+    const [isEditing, setIsEditing] = useState(false); // State to manage edit mode
     const navigate = useNavigate();
-    const { state, dispatch } = useContext(Context);
-    const { user, isLoading } = state; // Lấy user và isLoading từ context state
 
     useEffect(() => {
         const fetchUserData = async () => {
-            const username = localStorage.getItem('username'); // Lấy username từ local storage
+            const username = localStorage.getItem('username'); // Get username from local storage
             if (!username) {
-                navigate('/login'); // Redirect nếu không có username
+                navigate('/login'); // Redirect if no username
+                setIsLoading(false);
                 return;
             }
-
-            dispatch({ type: ACTION.SHOW_LOADING }); // Hiển thị loading khi bắt đầu lấy dữ liệu
             try {
-                // Giả lập thời gian loading
-                await new Promise((resolve) => setTimeout(resolve, 1000)); // Thời gian giả lập 1 giây
-                const userData = await getMemberById(username); // Gọi hàm lấy dữ liệu
-                dispatch({ type: ACTION.SET_USER, payload: userData }); // Cập nhật user vào context
+                const userData = await getMemberById(username); // Fetch user data
+                setUser(userData);
+                setPhotos(userData.photos || []); // Initialize photos state
             } catch (error) {
-                console.error('Lỗi khi lấy thông tin người dùng:', error);
-                navigate('/login'); // Redirect nếu có lỗi
+                console.error('Error fetching user information:', error);
+                setError('An error occurred while fetching user information. Please try again.');
+                navigate('/login'); // Redirect if there's an error
             } finally {
-                dispatch({ type: ACTION.HIDE_LOADING }); // Ẩn loading khi kết thúc
+                setIsLoading(false);
             }
         };
 
         fetchUserData();
-    }, [navigate, dispatch]);
+    }, [navigate]);
 
-    // Hiển thị hiệu ứng loading
-    if (isLoading) return <div>Loading...</div>; // Trạng thái loading
+    const handlePhotoUpload = (e) => {
+        const newPhotos = Array.from(e.target.files).map(file => URL.createObjectURL(file));
+        setPhotos((prev) => [...prev, ...newPhotos]);
+    };
+
+    const handleDeletePhoto = (photo) => {
+        setPhotos((prev) => prev.filter((p) => p !== photo));
+    };
+
+    const saveChanges = async () => {
+        const updatedUser = { ...user, photos }; // Update user object with new photos
+        await updateMember(updatedUser); // Update the member in the backend
+        alert('Changes saved successfully!'); // Notify the user
+        setIsEditing(false); // Exit edit mode
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUser((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    if (isLoading)
+        return (
+            <div id="spinner" className="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75">
+                <div className="animate-spin h-16 w-16 border-4 border-green-500 border-t-transparent rounded-full" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        ); // Loading state
+
+    if (error)
+        return (
+            <div className="container mx-auto p-4">
+                <p className="text-red-500">{error}</p>
+            </div>
+        );
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-semibold mb-4">Thông tin cá nhân</h1>
-            <div className="bg-white shadow-md rounded-lg p-6">
-                <div className="mb-4">
-                    <h2 className="text-xl font-semibold">Chi tiết người dùng</h2>
-                    <p><strong>Tên: </strong>{user.name}</p>
-                    <p><strong>Email: </strong>{user.email}</p>
-                    <p><strong>Số điện thoại: </strong>{user.phoneNumber}</p>
-                    <p><strong>Địa chỉ: </strong>{user.city}, {user.country}</p>
-                    <p><strong>Giới tính: </strong>{user.gender}</p>
-                    <p><strong>Tiêu đề hồ sơ: </strong>{user.profileTitle}</p>
-                    <p><strong>Giới thiệu: </strong>{user.introduction}</p>
+            <div className="flex flex-row">
+                <div className="w-1/4">
+                    <h1 className="text-2xl font-semibold mb-4">Your Profile</h1>
                 </div>
-                {/* Các thông tin khác (kinh nghiệm, giáo dục,...) */}
+                <div className="w-3/4">
+                    <div className="bg-white shadow-md rounded-lg p-6 mb-4">
+                        <div className="mb-4">
+                            <img
+                                src={user.photos || './assets/user.png'}
+                                alt={user.name}
+                                className="w-full h-64 object-cover rounded-lg mb-4"
+                            />
+                            <div>
+                                <label><strong>Username:</strong></label>
+                                <input
+                                    type="text"
+                                    name="userName"
+                                    value={user.userName}
+                                    onChange={handleInputChange}
+                                    disabled={!isEditing}
+                                    className={`border ${!isEditing ? 'bg-gray-200' : 'bg-white'} rounded p-2 w-full`}
+                                />
+                            </div>
+                            <div>
+                                <label><strong>Location:</strong></label>
+                                <input
+                                    type="text"
+                                    name="city"
+                                    value={user.city}
+                                    onChange={handleInputChange}
+                                    disabled={!isEditing}
+                                    className={`border ${!isEditing ? 'bg-gray-200' : 'bg-white'} rounded p-2 w-full`}
+                                />
+                            </div>
+                            <div>
+                                <label><strong>Gender:</strong></label>
+                                <input
+                                    type="text"
+                                    name="gender"
+                                    value={user.gender}
+                                    onChange={handleInputChange}
+                                    disabled={!isEditing}
+                                    className={`border ${!isEditing ? 'bg-gray-200' : 'bg-white'} rounded p-2 w-full`}
+                                />
+                            </div>
+                            <div>
+                                <label><strong>Date of Birth:</strong></label>
+                                <input
+                                    type="date"
+                                    name="dateOfBirth"
+                                    value={user.dateOfBirth.split("T")[0]}
+                                    onChange={handleInputChange}
+                                    disabled={!isEditing}
+                                    className={`border ${!isEditing ? 'bg-gray-200' : 'bg-white'} rounded p-2 w-full`}
+                                />
+                            </div>
+                            <div>
+                                <label><strong>Profile Title:</strong></label>
+                                <input
+                                    type="text"
+                                    name="profileTitle"
+                                    value={user.profileTitle}
+                                    onChange={handleInputChange}
+                                    disabled={!isEditing}
+                                    className={`border ${!isEditing ? 'bg-gray-200' : 'bg-white'} rounded p-2 w-full`}
+                                />
+                            </div>
+                            <div>
+                                <label><strong>Email:</strong></label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={user.email}
+                                    onChange={handleInputChange}
+                                    disabled={!isEditing}
+                                    className={`border ${!isEditing ? 'bg-gray-200' : 'bg-white'} rounded p-2 w-full`}
+                                />
+                            </div>
+                            <div>
+                                <label><strong>Phone Number:</strong></label>
+                                <input
+                                    type="text"
+                                    name="phoneNumber"
+                                    value={user.phoneNumber}
+                                    onChange={handleInputChange}
+                                    disabled={!isEditing}
+                                    className={`border ${!isEditing ? 'bg-gray-200' : 'bg-white'} rounded p-2 w-full`}
+                                />
+                            </div>
+                        </div>
+                        <div className="mt-4">
+                            <h3 className="text-lg font-semibold">Photos</h3>
+                            <input
+                                type="file"
+                                multiple
+                                accept="image/*"
+                                onChange={handlePhotoUpload}
+                                className="mt-2 mb-4"
+                            />
+                            <div className="grid grid-cols-3 gap-4">
+                                {photos.map((photo, index) => (
+                                    <div key={index} className="relative">
+                                        <img
+                                            src={photo}
+                                            alt={`Uploaded ${index}`}
+                                            className="w-full h-32 object-cover rounded-lg"
+                                        />
+                                        <button
+                                            onClick={() => handleDeletePhoto(photo)}
+                                            className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"
+                                        >
+                                            &times;
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="mt-4">
+                            {isEditing ? (
+                                <button
+                                    className="btn bg-green-500 text-white rounded"
+                                    onClick={saveChanges} // Call save changes function
+                                >
+                                    Save Changes
+                                </button>
+                            ) : (
+                                <button
+                                    className="btn bg-blue-500 text-white rounded"
+                                    onClick={() => setIsEditing(true)} // Enable edit mode
+                                >
+                                    Edit Profile
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                    {/* Add any other sections as needed, such as Experience, Education, etc. */}
+                </div>
             </div>
         </div>
     );

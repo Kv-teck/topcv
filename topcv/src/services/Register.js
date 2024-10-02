@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
 import { register } from '../environments/apiService';
 
 const Register = () => {
@@ -11,9 +10,9 @@ const Register = () => {
         password: '',
         confirmPassword: '',
     });
-
     const [isAgreed, setIsAgreed] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [loading, setLoading] = useState(false); // Thêm state loading
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -24,26 +23,23 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
+        setLoading(true); // Bắt đầu loading
 
         // Kiểm tra mật khẩu và xác nhận mật khẩu có khớp không
         if (formData.password !== formData.confirmPassword) {
             setErrorMessage("Mật khẩu không khớp.");
+            setLoading(false); // Kết thúc loading
             return;
         }
 
         const payload = {
             userName: formData.userName,
-
-
             password: formData.password,
-
-
             name: formData.name,
             email: formData.email,
         };
 
         try {
-            // Gọi hàm register từ API và truyền dữ liệu form
             const response = await register(payload);
 
             // Nếu đăng ký thành công, lưu token và điều hướng người dùng
@@ -53,15 +49,22 @@ const Register = () => {
                 navigate('/login');
             }
         } catch (error) {
-            // Xử lý lỗi từ API
-            if (error.message) {
-                console.log("Lỗi từ API:", error.message);
-                setErrorMessage(error.message || 'Đăng ký thất bại. Vui lòng kiểm tra thông tin.');
-            } else {
-                setErrorMessage('Lỗi kết nối hoặc hệ thống. Vui lòng thử lại sau.');
-            }
+            console.error("Lỗi từ API:", error);
+            setErrorMessage(error.message || 'Đăng ký thất bại. Vui lòng kiểm tra thông tin.');
+        } finally {
+            setLoading(false); // Kết thúc loading
         }
     };
+
+    // Hiển thị spinner khi đang loading
+    if (loading) 
+        return (
+            <div id="spinner" className="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75">
+                <div className="animate-spin h-16 w-16 border-4 border-green-500 border-t-transparent rounded-full" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        );
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -90,10 +93,10 @@ const Register = () => {
                     {/* Email */}
                     <div className="flex items-center border rounded-md px-3 py-2">
                         <input
-                            type="email"  // Use type email for validation
-                            name="email"  // Change to match state
+                            type="email"
+                            name="email"
                             placeholder="Nhập email"
-                            value={formData.email}  // Change here
+                            value={formData.email}
                             onChange={handleChange}
                             className="w-full focus:outline-none"
                             required
@@ -104,9 +107,9 @@ const Register = () => {
                     <div className="flex items-center border rounded-md px-3 py-2">
                         <input
                             type="text"
-                            name="userName"  // Change here
+                            name="userName"
                             placeholder="Tên đăng nhập"
-                            value={formData.userName}  // Change here
+                            value={formData.userName}
                             onChange={handleChange}
                             className="w-full focus:outline-none"
                             required
@@ -150,8 +153,8 @@ const Register = () => {
                         />
                         <p className="text-sm">
                             Tôi đã đọc và đồng ý với{" "}
-                            <a href="#" className="text-green-500 underline">Điều khoản dịch vụ</a> {" "}
-                            và {" "}
+                            <a href="#" className="text-green-500 underline">Điều khoản dịch vụ</a>{" "}
+                            và{" "}
                             <a href="#" className="text-green-500 underline">Chính sách bảo mật</a>
                             {" "} của TopCV
                         </p>

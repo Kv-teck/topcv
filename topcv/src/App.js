@@ -9,7 +9,7 @@ import Register from './services/Register';
 import { Job } from './pages/Job/Job';
 import STATE from './context/initState';
 import { Provider } from './context/context';
-import { useReducer } from 'react';
+import { useReducer} from 'react';
 import reducer from './context/reducer';
 import Profile from './members/Profile';
 
@@ -24,7 +24,6 @@ function App() {
           <span className="sr-only">Loading...</span>
         </div>
       </div>
-
       <div className="App">
         <HeaderComponent />
         <main>
