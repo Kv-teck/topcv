@@ -1,58 +1,67 @@
-// routes/auth.js
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const router = express.Router();
+import axios from 'axios';
 
-// Register route
-router.post('/register', async (req, res) => {
-    const { name, email, password, confirmPassword } = req.body;
+// Define the base URL for your API
+const API_URL = 'https://localhost:5208/api'; // Ensure this is the correct backend URL
 
-    // Validate inputs
-    if (!name || !email || !password || !confirmPassword) {
-        return res.status(400).json({ message: 'Please fill in all fields.' });
-    }
-
-    if (password !== confirmPassword) {
-        return res.status(400).json({ message: 'Passwords do not match.' });
-    }
-
+// Function to register a user
+export const register = async (userData) => {
     try {
-        // Check if user already exists
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            return res.status(400).json({ message: 'User already exists.' });
-        }
-
-        // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create new user
-        const newUser = new User({
-            name,
-            email,
-            password: hashedPassword,
-        });
-
-        // Save user to database
-        await newUser.save();
-
-        // Create and return JWT
-        const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-        res.status(201).json({
-            message: 'User registered successfully!',
-            token,
-            user: {
-                id: newUser._id,
-                name: newUser.name,
-                email: newUser.email,
-            },
-        });
+        const response = await axios.post(`${API_URL}/register`, userData);
+        return response.data;
     } catch (error) {
-        res.status(500).json({ message: 'Server error', error });
+        // Handle error: throw an error message based on API response or a general failure message
+        throw error.response ? error.response.data : 'Đăng ký thất bại. Vui lòng thử lại sau.';
     }
-});
+};
 
-module.exports = router;
+// Function to login a user
+export const login = async (userData) => {
+    try {
+        const response = await axios.post(`${API_URL}/login`, userData);
+        return response.data;
+    } catch (error) {
+        // Handle error similarly to registration
+        throw error.response ? error.response.data : 'Đăng nhập thất bại. Vui lòng thử lại sau.';
+    }
+};
+
+// Function to get a list of members
+export const getMembers = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/users`); // Ensure the endpoint is correct
+        return response.data;
+    } catch (error) {
+        throw error.response ? error.response.data : 'Lỗi khi lấy danh sách thành viên.';
+    }
+};
+
+// Function to get detailed information about a member
+export const getMemberById = async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}/users/${id}`); // Ensure the endpoint is correct
+        return response.data;
+    } catch (error) {
+        throw error.response ? error.response.data : 'Lỗi khi lấy thông tin thành viên.';
+    }
+};
+
+// Function to add a new member
+export const addMember = async (memberData) => {
+    try {
+        const response = await axios.post(`${API_URL}/members`, memberData); // Ensure the endpoint is correct
+        return response.data;
+    } catch (error) {
+        throw error.response ? error.response.data : 'Lỗi khi thêm thành viên.';
+    }
+};
+
+// Function to update member information
+export const updateMember = async (id, memberData) => {
+    try {
+        const response = await axios.put(`${API_URL}/users/${id}`, memberData); // Ensure the endpoint is correct
+        return response.data;
+    } catch (error) {
+        throw error.response ? error.response.data : 'Lỗi khi cập nhật thông tin thành viên.';
+    }
+};
+
