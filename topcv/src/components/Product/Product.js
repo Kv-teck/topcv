@@ -16,7 +16,7 @@ export const Product = () => {
 
                 <div className="flex-1">
                     <div className="flex items-center">
-                        <a className="px-2 py-0 bg-red-600 text-white rounded-full mr-1">HOT</a>
+                        <a className="px-2 py-0 bg-red-600 text-white rounded-full mr-1 animate-bounce">HOT</a>
                         <h3 className="text-xl font-semibold whitespace-nowrap overflow-hidden text-ellipsis max-w-[270px] group-hover:text-green-600">
                             Nhân Viên Xử Lý Đơn Hàng / Process
                         </h3>
