@@ -27,7 +27,7 @@ export const TopProminent = () => {
                     </div>
 
 
-                    <div className="flex space-x-2">
+                    <div className="flex items-center space-x-4 mt-4">
                         <button
                             disabled={currentPage === 1}
                             onClick={() => setCurrentPage(currentPage - 1)}

@@ -6,6 +6,7 @@ import Context from '../../context/context'
 import { ACTION } from '../../context/reducer'
 import TopLeading from '../../components/Top/TopLeading/TopLeading'
 import AdvertisingBanner from '../../components/AdvertisingBanner/AdvertisingBanner'
+import JobSuggestions from '../../components/JobSuggestions/JobSuggestions'
 
 
 export const Job = () => {
@@ -36,7 +37,7 @@ export const Job = () => {
             <AdvertisingBanner />
             <TopLeading />
             <TopProminent />
-
+            <JobSuggestions/>
         </>
     )
 }
