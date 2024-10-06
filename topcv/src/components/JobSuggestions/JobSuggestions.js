@@ -8,7 +8,7 @@ const JobSuggestions = () => {
             <div className="container mx-auto">
                 <div className="flex items-center justify-between py-4 ">
                     <div className="flex items-center space-x-2">
-                        <h1 className="text-2xl font-bold text-green-600">Việc làm tốt nhất</h1>
+                        <h1 className="text-2xl font-bold text-green-600">Gợi ý việc làm phù hợp</h1>
                     </div>
                     <div className="flex items-center space-x-4 mt-4">
                         <Link to="" className="text-green-600">Xem tất cả</Link>
