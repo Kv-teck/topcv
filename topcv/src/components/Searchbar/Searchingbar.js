@@ -104,7 +104,7 @@ const Searchbar = () => {
       </div>
       <img className="block absolute h-[140.71px] w-[111.86px] top-[93px] right-[43.14px]" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/job-new/section-header/robot.png" alt="" data-ll-status="loading" />
 
-      <img className="flex items-center block absolute left-0 top-[80px] max-w-full h-auto" data-src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/job-new/section-header/bg-left.png" alt="" data-ll-status="loaded" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/job-new/section-header/bg-left.png" />
+      <img className="flex items-center absolute left-0 top-[80px] max-w-full h-auto" data-src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/job-new/section-header/bg-left.png" alt="" data-ll-status="loaded" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/job-new/section-header/bg-left.png" />
       <img className="block absolute right-0 top-[85px]" src="https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/v4/image/job-new/section-header/bg-right.png" alt="" data-ll-status="loading" />
 
       <div className="pt-4 pb-8">
@@ -112,7 +112,7 @@ const Searchbar = () => {
           <div className="mb-0 flex justify-center">
             <div className="border border-[#ebebeb] rounded-[10px] w-[1140px]"> {/* Đặt w-[1140px] ở đây */}
               <a
-                href="https://thangluongdau.topcv.vn/"
+                href="#"
                 target="_blank"
                 title="DẤU ẤN THÁNG LƯƠNG ĐẦU"
                 tabIndex="0"
@@ -130,8 +130,6 @@ const Searchbar = () => {
           </div>
         </div>
       </div>
-
-
     </ >
   );
 };

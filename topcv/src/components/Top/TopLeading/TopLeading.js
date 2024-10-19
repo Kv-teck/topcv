@@ -40,6 +40,36 @@ export const TopLeading = () => {
     const currentTopleading = Topleading.slice(currentIndex, currentIndex + productsPerPage);
 
     return (
+
+        <>
+            <div className="container mx-auto">
+                <div className="flex items-center justify-between py-4 bg-white">
+                    <div className="flex items-center space-x-2">
+                        <h1 className="text-2xl font-bold text-green-600">Top Công ty hàng đầu</h1>
+                    </div>
+                    <div className="flex items-center space-x-4 mt-4">
+                        <button
+                            disabled={currentPage === 1}
+                            onClick={() => setCurrentPage(currentPage - 1)}
+                            className={`w-10 h-10 rounded-full border flex items-center justify-center 
+        ${currentPage === 1 ? 'border-gray-300 text-gray-300 cursor-not-allowed' : 'border-[#33c172] text-green-600 hover:bg-[#33c172] hover:text-white'}`}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button
+                            disabled={currentPage === totalPages}
+                            onClick={() => setCurrentPage(currentPage + 1)}
+                            className={`w-10 h-10 rounded-full border flex items-center justify-center transition 
+    ${currentPage === totalPages ? 'border-gray-300 text-gray-300 cursor-not-allowed' :
+                                    'border-green-600 text-green-600 hover:bg-[#33c172] hover:text-white'}`}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
         <div className="container mx-auto">
             <div className="flex items-center justify-between py-4 bg-white">
                 <h1 className="text-xl font-bold text-green-600">Top Công ty hàng đầu</h1>
@@ -57,6 +87,7 @@ export const TopLeading = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
+
 
                     <button
                         disabled={currentIndex + productsPerPage >= totalCompanies}
