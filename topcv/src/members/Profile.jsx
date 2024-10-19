@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getMemberById, updateMember } from '../environments/apiService'; // Ensure the import path is correct
+import userImage from '../assets/img/user.png'; // Import the user image
 
 const Profile = () => {
     const [user, setUser] = useState(null);
@@ -8,6 +9,7 @@ const Profile = () => {
     const [error, setError] = useState(null);
     const [photos, setPhotos] = useState([]); // State for managing photos
     const [isEditing, setIsEditing] = useState(false); // State to manage edit mode
+    const [isSaving, setIsSaving] = useState(false); // State to manage save loading
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -44,10 +46,17 @@ const Profile = () => {
     };
 
     const saveChanges = async () => {
+        setIsSaving(true); // Start saving
         const updatedUser = { ...user, photos }; // Update user object with new photos
-        await updateMember(updatedUser); // Update the member in the backend
-        alert('Changes saved successfully!'); // Notify the user
-        setIsEditing(false); // Exit edit mode
+        try {
+            await updateMember(updatedUser); // Update the member in the backend
+            alert('Changes saved successfully!'); // Notify the user
+        } catch (error) {
+            setError('An error occurred while saving changes. Please try again.'); // Handle errors
+        } finally {
+            setIsSaving(false); // Stop saving
+            setIsEditing(false); // Exit edit mode
+        }
     };
 
     const handleInputChange = (e) => {
@@ -57,6 +66,7 @@ const Profile = () => {
             [name]: value,
         }));
     };
+    
 
     if (isLoading)
         return (
@@ -84,10 +94,11 @@ const Profile = () => {
                     <div className="bg-white shadow-md rounded-lg p-6 mb-4">
                         <div className="mb-4">
                             <img
-                                src={user.photos || './assets/user.png'}
+                                src={user.photos && user.photos.length > 0 ? user.photos[0] : userImage}
                                 alt={user.name}
-                                className="w-full h-64 object-cover rounded-lg mb-4"
+                                className="w-full h-64 object-cover rounded-lg mb-4 w-24 h-full"
                             />
+
                             <div>
                                 <label><strong>Username:</strong></label>
                                 <input
@@ -196,14 +207,15 @@ const Profile = () => {
                         <div className="mt-4">
                             {isEditing ? (
                                 <button
-                                    className="btn bg-green-500 text-white rounded"
+                                    className="btn bg-green-500 text-white rounded p-2"
                                     onClick={saveChanges} // Call save changes function
+                                    disabled={isSaving} // Disable button while saving
                                 >
-                                    Save Changes
+                                    {isSaving ? 'Saving...' : 'Save Changes'}
                                 </button>
                             ) : (
                                 <button
-                                    className="btn bg-blue-500 text-white rounded"
+                                    className="btn bg-blue-500 text-white rounded p-2"
                                     onClick={() => setIsEditing(true)} // Enable edit mode
                                 >
                                     Edit Profile
