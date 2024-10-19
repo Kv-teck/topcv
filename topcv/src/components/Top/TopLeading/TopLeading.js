@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FormTopleading from "./FormTopleading";
 
 export const TopLeading = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 4;
+    const productsPerPage = 1;
     const totalProducts = 5; // Tổng số sản phẩm
     const totalPages = Math.ceil(totalProducts / productsPerPage);
 
     // Giả lập danh sách sản phẩm
     const Topleading = Array.from({ length: totalProducts }, (_, index) => ({ id: index + 1 }));
 
+    // Tự động nhảy slide mỗi 3 giây (3000ms)
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentPage(prevPage => prevPage < totalPages ? prevPage + 1 : 1);
+        }, 3000); // Thời gian chờ giữa các slide, có thể điều chỉnh
+
+        return () => clearInterval(interval); // Xóa interval khi component unmount
+    }, [totalPages]);
+
     // Lấy sản phẩm cho trang hiện tại
     const currentTopleading = Topleading.slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage);
+
     return (
         <>
-            <div className="container mx-auto ">
+            <div className="container mx-auto">
                 <div className="flex items-center justify-between py-4 bg-white">
                     <div className="flex items-center space-x-2">
                         <h1 className="text-2xl font-bold text-green-600">Top Công ty hàng đầu</h1>
@@ -52,11 +62,10 @@ export const TopLeading = () => {
                         ))}
 
                     </div>
-
                 </div>
-
             </div>
         </>
-    )
-}
+    );
+};
+
 export default TopLeading;
