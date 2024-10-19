@@ -11,7 +11,7 @@ const JobSuggestions = () => {
                         <h1 className="text-2xl font-bold text-green-600">Gợi ý việc làm phù hợp</h1>
                     </div>
                     <div className="flex items-center space-x-4 mt-4">
-                        <Link to="" className="text-green-600">Xem tất cả</Link>
+                        <Link to="" className="text-gray-700 text-lg hover:text-green-600 underline">Xem tất cả</Link>
                         <button
                             className="w-10 h-10 rounded-full border flex items-center justify-center 
                             border-[#33c172] text-green-600 hover:bg-[#33c172] hover:text-white">

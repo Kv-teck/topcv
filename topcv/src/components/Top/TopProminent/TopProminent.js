@@ -53,7 +53,7 @@ export const TopProminent = () => {
                     </div>
                 </div>
 
-                <div className="container mx-auto">
+                <div className="container mx-auto pb-10">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {currentTopProminent.map(TopProminent => (
                             <FormTopProminent key={TopProminent.id} />

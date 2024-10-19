@@ -7,6 +7,8 @@ import { ACTION } from '../../context/reducer'
 import TopLeading from '../../components/Top/TopLeading/TopLeading'
 import AdvertisingBanner from '../../components/AdvertisingBanner/AdvertisingBanner'
 import JobSuggestions from '../../components/JobSuggestions/JobSuggestions'
+import FeaturedEmployer from '../../components/FeaturedEmployer/FeaturedEmployer'
+import OtherCompanies from '../../components/OtherCompanies/OtherCompanies'
 
 
 export const Job = () => {
@@ -36,8 +38,10 @@ export const Job = () => {
             </div>
             <AdvertisingBanner />
             <TopLeading />
-            <TopProminent />
             <JobSuggestions/>
+            <TopProminent />
+            <FeaturedEmployer/>
+            <OtherCompanies/>
         </>
     )
 }
