@@ -2,28 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes slide-left-1 {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%); /* Bắt đầu từ ngoài màn hình bên phải */
+  }
+  100% {
+    transform: translateX(-100%); /* Kết thúc ở ngoài màn hình bên trái */
+  }
+}
+
+.animate-slide-left-1 {
+  animation: slide-left 30s linear infinite;
+}
+
+.animate-slide-left-2 {
+  animation: slide-left 32s linear infinite;
+}
+
+  @keyframes bounce-1 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
   
-  @keyframes slide-left-2 {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  @keyframes bounce-2 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
   }
   
-  .animate-slide-left-1 {
-    animation: slide-left-1 50s linear infinite;
+  @keyframes bounce-3 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
   
-  .animate-slide-left-2 {
-    animation: slide-left-2 52s linear infinite;
+  .animate-bounce-1 {
+    animation: bounce-1 2s ease-in-out infinite;
   }
+  
+  .animate-bounce-2 {
+    animation: bounce-2 2.5s ease-in-out infinite;
+  }
+  
+  .animate-bounce-3 {
+    animation: bounce-3 2.2s ease-in-out infinite;
+  }
+  
