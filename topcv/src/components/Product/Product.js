@@ -54,7 +54,7 @@ export const Product = () => {
     </div>
 
     {/* Hover Content */}
-    <div className="absolute top-0 left-1/3 w-2/3 bg-white shadow-md rounded-lg p-6 hidden group-hover:block z-10">
+    <div className="absolute top-0 left-1/3 w-full bg-white shadow-md rounded-lg m-0 p-6 hidden group-hover:block z-10 transition-opacity duration-300 ease-in-out">
         <div className="flex items-center space-x-4">
             <img
                 src="https://cdn-new.topcv.vn/unsafe/140x/https://static.topcv.vn/company_logos/cong-ty-tnhh-kohnan-viet-nam-61949ebb1b4d7.jpg"
